@@ -1,6 +1,9 @@
 # Office365-Powershell-Scripts
 A collection of PowerShell cmdlets and scripts designed for Office 365 administration.
 
+Required: Connect-ExchangeOnline Module 
+You must first connect with Connect-ExchangeOnline before running any cmdlets or scripts. 
+
 ⚠️ Use At Your Own Risk — PowerShell Scripts
 
 Supported PowerShell: PowerShell 5.1 / PowerShell 7+ (specify whichever applies)
