@@ -7,4 +7,4 @@ Get-Mailbox -Filter {ArchiveStatus -Eq "None" -AND RecipientTypeDetails -eq "Use
 
 Export to CSV
 
-Get-Mailbox -Filter {ArchiveStatus -Eq "None" -AND RecipientTypeDetails -eq "UserMailbox"} | Select-Object DisplayName,PrimarySmtpAddress,ArchiveStatus | Export-Csv "C:\Temp\NoArchiveMailboxes.csv" -NoTypeInformation
+Get-Mailbox -Filter {ArchiveStatus -Eq "None" -AND RecipientTypeDetails -eq "UserMailbox"} | Select-Object DisplayName,PrimarySmtpAddress,ArchiveStatus,ProhibitSendQuota | Export-Csv "C:\Temp\NoArchiveMailboxes.csv" -NoTypeInformation
