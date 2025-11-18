@@ -10,5 +10,5 @@ Replace the generic GUID with the actual primary mailbox GUID of the user.
 # Get mailbox GUID and location
 Get-MailboxLocation -User user@example.com | FL MailboxGuid, MailboxLocationType
 
-# Start the Managed Folder Assistant on the primary mailbox using a generic GUID
+# Start the Managed Folder Assistant on the primary mailbox using the primary GUID
 Start-ManagedFolderAssistant 00000000-0000-0000-0000-000000000000
