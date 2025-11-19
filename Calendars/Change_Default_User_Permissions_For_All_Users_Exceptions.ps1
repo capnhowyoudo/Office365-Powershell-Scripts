@@ -1,6 +1,6 @@
 <#
     .SYNOPSIS
-    Set_Default_User_Permissions_For_All_Users_Exceptions.ps1
+    Change_Default_User_Permissions_For_All_Users_Exceptions.ps1
 
     .DESCRIPTION
     Set default calendar permissions for all user mailboxes including exception for users.
