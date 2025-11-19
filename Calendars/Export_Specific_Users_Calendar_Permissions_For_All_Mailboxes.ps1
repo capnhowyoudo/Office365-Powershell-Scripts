@@ -17,7 +17,7 @@ Get-Mailbox | ForEach {
     Get-MailboxFolderPermission (($_.PrimarySmtpAddress.ToString()) + ":\Calendar") -User user@onmicrosoft.com -ErrorAction SilentlyContinue
 } | Select-Object Identity, User, AccessRights
 
-Export to CSV
+.Export to CSV
 
 $OutputFile = "C:\Temp\CalendarPermissions.csv"
 
