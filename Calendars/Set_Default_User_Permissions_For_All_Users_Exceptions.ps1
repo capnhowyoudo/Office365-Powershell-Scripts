@@ -58,7 +58,7 @@ Start-Transcript -Path "C:\temp\Set-DefCalPermissions.log" -Append
 $Users = Get-Mailbox -ResultSize Unlimited -RecipientTypeDetails UserMailbox
 
 # Users exception (add the UserPrincipalName)
-$Exception = @("youremail.exception.com", "youremail2.exception.com")
+$Exception = @("youremail@exception.com", "youremail2@exception.com")
 
 # Permissions
 $Permission = "LimitedDetails"
