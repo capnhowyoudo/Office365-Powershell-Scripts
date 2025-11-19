@@ -8,7 +8,6 @@ It prompts for the desired access right (Reviewer, Editor, etc.) and applies it 
 Errors for users already added are ignored. Finally, the script displays all updated calendar permissions.
 
 .NOTES
-- Written by: Your Name
 - Date: 2025-11-19
 - The script requires Exchange Online PowerShell Module (Connect-ExchangeOnline).
 - ExecutionPolicy should allow running scripts.
