@@ -16,8 +16,6 @@ A progress bar is displayed during processing. The report is saved to C:\Temp\Ma
 - Discovery Search Mailbox is excluded from the report.
 - Ensure C:\Temp exists or the script will fail when exporting CSV.
 - Replace example emails with your organization’s domain as needed.
-- Exclude users that you don’t want the script to run against. Add them in line 35. If you don’t need this feature, comment out line 35.
-- Change permission that you want to set for all the users in line 38.
 - Reference: https://www.sharepointdiary.com/2021/11/check-mailbox-permissions-office-365.html
 #>
 
