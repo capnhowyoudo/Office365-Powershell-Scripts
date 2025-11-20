@@ -18,6 +18,9 @@
     LinkedIn:   linkedin.com/in/alitajran
     X:          x.com/alitajran
 
+    - Exclude users that you don’t want the script to run against. Add them in line 35. If you don’t need this feature, comment out line 38.
+    - Change permission that you want to set for all the users in line 41.
+
     .CHANGELOG
     V1.30, 02/19/2025 - It will now get the calendar folder name language for each mailbox.
 #>
