@@ -18,8 +18,21 @@
     LinkedIn:   linkedin.com/in/alitajran
     X:          x.com/alitajran
 
-    - Exclude users that you don’t want the script to run against. Add them in line 35. If you don’t need this feature, comment out line 38.
-    - Change permission that you want to set for all the users in line 41.
+    - Exclude users that you don’t want the script to run against. Add them in line 51. If you don’t need this feature, comment out line 51.
+    - Change permission that you want to set for all the users in line 54.
+
+    - AccessRights: Defines the permission level. Common values include:
+    • Owner – Full control, including manage permissions
+    • PublishingEditor – Read, create, modify, delete items/subfolders
+    • Editor – Read, create, modify, delete items
+    • PublishingAuthor – Read, create all items/subfolders, modify/delete own items
+    • Author – Create/read items, modify/delete own items
+    • NonEditingAuthor – Read all, create items, delete own items only
+    • Reviewer – Read only
+    • Contributor – Create items and folders only
+    • AvailabilityOnly – Free/busy information
+    • LimitedDetails – View subject/location only
+    • None – No access
 
     .CHANGELOG
     V1.30, 02/19/2025 - It will now get the calendar folder name language for each mailbox.
