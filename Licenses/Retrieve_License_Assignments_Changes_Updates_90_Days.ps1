@@ -11,102 +11,65 @@ processes those records, and generates a CSV report and GridView output.
 
 #>
 
-# Connect to Exchange Online
 Connect-ExchangeOnline
-
-# Set date range for the audit logs
+# Azure AD license assignment script
 $StartDate = (Get-Date).AddDays(-90)
 $EndDate = (Get-Date).AddDays(1)
+Write-Host "Searching for license assignment audit records"
+[array]$Records = Search-UnifiedAuditLog -StartDate $StartDate -EndDate $EndDate -Formatted -ResultSize 5000 -Operations "Change user license", "Update User" -SessionCommand ReturnLargeSet
+If (!($Records)) { Write-Host "No audit records found... exiting... " ; break}
 
-Write-Host "Searching for license assignment audit records between $StartDate and $EndDate..." -ForegroundColor Cyan
+Write-Host ("Processing {0} records" -f $Records.count)
+$Records = $Records | Sort-Object {$_.CreationDate -as [datetime]} -Descending
+[array]$LicenseUpdates = $Records | Where-Object {$_.Operations -eq "Change user license."}
+[array]$UserUpdates = $Records | Where-Object {$_.Operations -eq "Update user."}
 
-try {
-    # Broaden operation filters to include all relevant events
-    [array]$Records = Search-UnifiedAuditLog -StartDate $StartDate -EndDate $EndDate -Formatted -ResultSize 5000 `
-        -Operations "Change user license","Update user","Add license to user","Remove license from user" -SessionCommand ReturnLargeSet
-} catch {
-    Write-Host "Error retrieving audit records: $_" -ForegroundColor Red
-    exit
-}
-
-if (!($Records)) {
-    Write-Host "No audit records found... exiting..." -ForegroundColor Yellow
-    exit
-}
-
-Write-Host ("Processing {0} records..." -f $Records.count) -ForegroundColor Cyan
-
-# Sort by creation date (newest first)
-$Records = $Records | Sort-Object {[datetime]$_.CreationDate} -Descending
-
-# Separate by type
-[array]$LicenseEvents = $Records | Where-Object {$_.Operations -match "license"}
-[array]$UserUpdates = $Records | Where-Object {$_.Operations -eq "Update user"}
-
-# Initialize report collection
 $Report = [System.Collections.Generic.List[Object]]::new()
 
-foreach ($Event in $LicenseEvents) {
-    try {
-        $AuditData = $Event.AuditData | ConvertFrom-Json
-        $CreationDate = [datetime]$Event.CreationDate
-
-        # Find nearby user update record within ±2 minutes
-        [array]$Detail = $UserUpdates | Where-Object {
-            ($_.UserIds -eq $Event.UserIds) -and
-            ([datetime]$_.CreationDate -ge $CreationDate.AddMinutes(-2)) -and
-            ([datetime]$_.CreationDate -le $CreationDate.AddMinutes(2))
-        }
-
-        $OldSkuNames = $NewSkuNames = $null
-
-        if ($Detail) {
-            $LicenseData = $Detail[0].AuditData | ConvertFrom-Json
-            $ModifiedProps = $LicenseData.ModifiedProperties | Where-Object {$_.Name -eq 'AssignedLicense'}
-
-            if ($ModifiedProps) {
-                # Parse old values
-                if ($ModifiedProps.OldValue) {
-                    try {
-                        $OldLicenses = $ModifiedProps.OldValue | ConvertFrom-Json
-                        $OldSkuNames = ($OldLicenses | ForEach-Object {
-                            ($_ -split '[,=]')[1]
-                        }) -join ", "
-                    } catch {}
-                }
-
-                # Parse new values
-                if ($ModifiedProps.NewValue) {
-                    try {
-                        $NewLicenses = $ModifiedProps.NewValue | ConvertFrom-Json
-                        $NewSkuNames = ($NewLicenses | ForEach-Object {
-                            ($_ -split '[,=]')[1]
-                        }) -join ", "
-                    } catch {}
-                }
-            }
-        }
-
-        # Add line to report
-        $Report.Add([PSCustomObject]@{
-            'Operation'     = $AuditData.Operation
-            'Timestamp'     = (Get-Date($AuditData.CreationTime) -format "yyyy-MM-dd HH:mm:ss")
-            'Performed By'  = $AuditData.UserId
-            'Target User'   = $AuditData.ObjectId
-            'Old SKU(s)'    = $OldSkuNames
-            'New SKU(s)'    = $NewSkuNames
-        })
-    } catch {
-        Write-Host "Error processing record for $($Event.UserIds): $_" -ForegroundColor Red
+ForEach ($L in $LicenseUpdates) {
+  $NewLicenses = $Null; $OldLicenses = $Null; $OldSkuNames = $Null; $NewSkuNames = $Null
+  $AuditData = $L.AuditData | ConvertFrom-Json
+  $CreationDate = Get-Date($L.CreationDate) -format s
+  [array]$Detail = $UserUpdates | Where-Object {$_.CreationDate -eq $CreationDate -and $_.UserIds -eq $L.UserIds}
+  If ($Detail) { # Found a user update record
+     [int]$i = 0
+     $LicenseData = $Detail[0].AuditData | ConvertFrom-Json
+     [array]$OldLicenses = $LicenseData.ModifiedProperties | Where {$_.Name -eq 'AssignedLicense'} | Select-Object -ExpandProperty OldValue | Convertfrom-Json
+     If ($OldLicenses) {
+        [array]$OldSkuNames = $Null
+        ForEach ($OSku in $OldLicenses) {
+           $OldSkuName = $OldLicenses[$i].Substring(($OldLicenses[$i].IndexOf("=")+1), ($OldLicenses[$i].IndexOf(",")-$OldLicenses[$i].IndexOf("="))-1)
+           $OldSkuNames += $OldSkuName
+           $i++
+         }
+      $OldSkuNames = $OldSkuNames -join ", "
     }
+    [array]$NewLicenses = $LicenseData.ModifiedProperties | Where {$_.Name -eq 'AssignedLicense'} | Select-Object -ExpandProperty NewValue | Convertfrom-Json
+    If ($NewLicenses) {
+        $i = 0
+        [array]$NewSkuNames = $Null
+        ForEach ($N in $NewLicenses) {
+           $NewSkuName = $NewLicenses[$i].Substring(($NewLicenses[$i].IndexOf("=")+1), ($NewLicenses[$i].IndexOf(",")-$NewLicenses[$i].IndexOf("="))-1)
+           $NewSkuNames += $NewSkuName
+           $i++
+         }
+      $NewSkuNames = $NewSkuNames -join ", "
+    }
+
+  } # end if
+  $ReportLine   = [PSCustomObject] @{ 
+     Operation      = $AuditData.Operation
+     Timestamp      = Get-Date($AuditData.CreationTime) -format g
+     'Assigned by'  = $AuditData.UserId
+     'Assigned to'  = $AuditData.ObjectId 
+     'Old SKU'      = $OldSkuNames
+     'New SKU'      = $NewSkuNames
+     'New licenses' = $NewLicenses
+     'Old licenses' = $OldLicenses
+  }
+  $Report.Add($ReportLine)
 }
 
-# Sort report and export
-$Report = $Report | Sort-Object {[datetime]$_.Timestamp}
-$ExportPath = "C:\temp\LicenseAssignmentReport.csv"
-
-if (!(Test-Path "C:\temp")) { New-Item -ItemType Directory -Path "C:\temp" | Out-Null }
-$Report | Export-Csv $ExportPath -NoTypeInformation -Encoding UTF8
+$Report = $Report | Sort-Object {$_.TimeStamp -as [datetime]} 
 $Report | Out-GridView
 
-Write-Host "`nReport exported to $ExportPath" -ForegroundColor Green
