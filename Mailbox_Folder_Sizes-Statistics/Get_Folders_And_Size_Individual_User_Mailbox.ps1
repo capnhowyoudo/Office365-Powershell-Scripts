@@ -19,4 +19,8 @@ This script is useful for administrators who need to review mailbox folder sizes
 
 # Retrieve folder statistics for the mailbox "user@example.com" and export the data to a CSV file
 
-Get-MailboxFolderStatistics -Identity "user@example.com" | Select-Object Identity, ItemsInFolder, FolderSize | Export-Csv C:\Path\To\Export\Stats.csv -NoTypeInformation; Write-Host "The mailbox folder statistics have been exported to C:\Path\To\Export\Stats.csv"
+Get-MailboxFolderStatistics -Identity "user@example.com" | Select-Object Identity, ItemsInFolder, FolderSize 
+
+Export to CSV
+
+Get-MailboxFolderStatistics -Identity "user@example.com" | Select-Object Identity, ItemsInFolder, FolderSize | Export-Csv C:\Path\To\Export\Stats.csv -NoTypeInformation
