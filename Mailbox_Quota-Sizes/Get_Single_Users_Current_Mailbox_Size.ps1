@@ -1,22 +1,22 @@
 <#
 .SYNOPSIS
-Retrieves the mailbox statistics for a specified user and sorts the results by total item size, displaying the top 100 largest mailboxes.
+Retrieves and displays mailbox statistics for a specified mailbox, including the total item size.
 
 .DESCRIPTION
-This script retrieves mailbox statistics for a specified mailbox, sorts the results by total item size in descending order, and selects the top 100 mailboxes with the largest item sizes. It then re-sorts the results in ascending order and displays the display name and total item size for each mailbox.
+This cmdlet retrieves mailbox statistics for a specified mailbox, including the display name and total item size of the mailbox. The total item size provides an indication of how much space the mailbox is using.
 
 .PARAMETER Identity
-Specifies the email address of the mailbox for which the statistics are being retrieved. The parameter should be in the format of a valid email address (e.g., user@example.com).
+Specifies the email address or identity of the mailbox for which the statistics are being retrieved. The parameter should be in a valid email address format (e.g., user@example.com).
 
 .NOTES
 Example Usage:
-    Get-Mailbox -ResultSize Unlimited -Identity "user@example.com" | Get-MailboxStatistics | Sort-Object TotalItemSize -Descending | Select-Object DisplayName, TotalItemSize -First 100 | Sort-Object TotalItemSize
-    This will retrieve and display the top 100 largest mailboxes for "user@example.com", sorted by total item size.
+    Get-MailboxStatistics -Identity "user@example.com" | Select-Object DisplayName, TotalItemSize
+    This will retrieve and display the mailbox statistics for the mailbox "user@example.com", including the display name and total item size.
 
-This script helps administrators identify large mailboxes and analyze mailbox storage usage.
+This cmdlet helps administrators to check the total size of a mailbox to monitor storage usage.
 
 #>
 
-# Retrieve mailbox statistics for "user@example.com", sort by total item size, select top 100, then sort in ascending order
+# Retrieve and display mailbox statistics for the mailbox "user@example.com"
 
-Get-Mailbox -ResultSize Unlimited -Identity "user@example.com" | Get-MailboxStatistics | Sort-Object TotalItemSize -Descending | Select-Object DisplayName, TotalItemSize -First 100 | Sort-Object TotalItemSize
+Get-MailboxStatistics -Identity "user@example.com" | Select-Object DisplayName, TotalItemSize
