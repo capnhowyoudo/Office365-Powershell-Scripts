@@ -20,3 +20,7 @@ This cmdlet helps administrators manage mailbox sizes and ensure that folders li
 # Retrieve folder statistics for the "Deleted Items" folder from the mailbox "user@example.com" and display relevant details
 
 Get-MailboxFolderStatistics -Identity "user@example.com" | Where-Object {$_.FolderPath -eq "/Deleted Items"} | Select Name, FolderPath, ItemsInFolder, FolderSize
+
+Export to CSV
+
+Get-MailboxFolderStatistics -Identity "user@example.com" | Where-Object {$_.FolderPath -eq "/Deleted Items"} | Select Name, FolderPath, ItemsInFolder, FolderSize | Export-Csv C:\Path\To\Export\Stats.csv -NoTypeInformation
