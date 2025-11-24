@@ -18,4 +18,5 @@ This script is useful for extracting and analyzing the members of a unified grou
 #>
 
 # Retrieve members of the unified group "GroupName" and export relevant details to a CSV file, then display confirmation
+
 Get-UnifiedGroup -Identity "GroupName" | Get-UnifiedGroupLinks -LinkType Member | Select Displayname, PrimarySmtpAddress, RecipientType, WhenCreated | Export-Csv -Path C:\Path\To\Export\File.csv -NoTypeInformation; Write-Host "The group members have been exported to C:\Path\To\Export\File.csv"
