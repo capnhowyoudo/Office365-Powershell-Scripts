@@ -1,7 +1,8 @@
 # Office365-Powershell-Scripts
 A collection of PowerShell cmdlets and scripts designed for Office 365 administration.
 
-Required: Connect-ExchangeOnline Module 
+Required: ExchangeOnline Module 
+Required: Microsoft.Graph Module
 
 You must first connect with Connect-ExchangeOnline before running any cmdlets or scripts. 
 
