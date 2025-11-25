@@ -16,6 +16,8 @@ user2@example.com
 user3@example.com
 
 The file path in the script uses C:\Temp\Accounts.txt.
+
+Sku's can be found with this script https://github.com/capnhowyoudo/Office365-Powershell-Scripts/blob/main/Licenses/Get_License_SKU.ps1
 #>
 
 Connect-MgGraph -Scopes "User.ReadWrite.All","Directory.ReadWrite.All"
