@@ -5,7 +5,8 @@ Required: ExchangeOnline Module
 
 Required: Microsoft.Graph Module
 
-You must first connect with Connect-ExchangeOnline before running any cmdlets or scripts. 
+You must first connect with Connect-ExchangeOnline or Connect-MgGraph -Scopes "User.ReadWrite.All","Group.ReadWrite.All" before running any cmdlets or scripts. 
+
 
 ⚠️ Use At Your Own Risk — PowerShell Scripts
 
