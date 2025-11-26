@@ -10,4 +10,7 @@ and evaluates the PasswordPolicies property to indicate if the password never ex
 Requires Microsoft Graph PowerShell module (Mg) and appropriate permissions.
 #>
 
+#Connect to Microsoft Graph
+Connect-MgGraph -Scopes "User.ReadWrite.All"
+
 Get-MgUser -UserId <user id or UPN> -Property UserPrincipalName, PasswordPolicies | Select-Object UserPrincipalName,@{N="PasswordNeverExpires";E={$_.PasswordPolicies -match "DisablePasswordExpiration"}}
