@@ -29,7 +29,7 @@ Create_Bulk_External_Users_With_Invite.ps1
 
 # --- Connect to MSGraph ---
 
-Connect-Graph -Scopes User.ReadWrite.All, Organization.Read.All -UseDeviceCode
+Connect-Graph -Scopes User.ReadWrite.All, Organization.Read.All
 
 # --- Configuration ---
 $csvPath = "C:\Scripts\Guests.csv"  # <--- Update this with the path to your CSV file
