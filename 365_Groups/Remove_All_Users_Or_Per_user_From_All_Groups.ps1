@@ -107,7 +107,7 @@ user3@contoso.com
 Place Both The Script and csv into the same folder C:\Scripts
 
 Run the script: 
-Remove -WhatIf after testing
+Test the removal actions without actually removing users: Remove -WhatIf after testing
 
 cd c:\Scripts
 $csv = Import-Csv .\nameofyoursheet.csv
