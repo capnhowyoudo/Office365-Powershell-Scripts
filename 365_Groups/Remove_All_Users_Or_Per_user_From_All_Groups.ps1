@@ -89,11 +89,11 @@ Shows detailed progress and troubleshooting information.
 
 .EXAMPLE
 Remove a single user from all applicable groups:
-.\Remove_User(s)_From_All_Groups.ps1 -Identity "user1@contoso.com" -IncludeAADSecurityGroups -IncludeOffice365Groups
+.Remove_All_Users_Or_Per_user_From_All_Groups.ps1 -Identity "user1@contoso.com" -IncludeAADSecurityGroups -IncludeOffice365Groups
 
 .EXAMPLE
 Remove multiple users using an array:
-.\Remove_User(s)_From_All_Groups.ps1 -Identity "user1@contoso.com","user2@contoso.com" -IncludeOffice365Groups
+.Remove_All_Users_Or_Per_user_From_All_Groups.ps1 -Identity "user1@contoso.com","user2@contoso.com" -IncludeOffice365Groups
 
 .EXAMPLE
 Remove multiple users using a CSV file:
@@ -104,13 +104,18 @@ user1@contoso.com
 user2@contoso.com
 user3@contoso.com
 
-Run the script:
-Import-Csv "C:\Scripts\UsersToRemove.csv" | ForEach-Object { & "C:\Scripts\Remove_User(s)_From_All_Groups.ps1" -Identity $_.UserPrincipalName -IncludeAADSecurityGroups -IncludeOffice365Groups }
+Place Both The Script and csv into the same folder C:\Scripts
 
+Run the script: 
+Remove -WhatIf after testing
+
+cd c:\Scripts
+$csv = Import-Csv .\nameofyoursheet.csv
+.\Remove_All_Users_Or_Per_user_From_All_Groups.ps1 -Identity $csv.UserPrincipalName -WhatIf - Verbose
 
 .EXAMPLE
 Test the removal actions without actually removing users:
-.\Remove_User(s)_From_All_Groups.ps1 -Identity "user1@contoso.com" -IncludeOffice365Groups -WhatIf
+.\Remove_All_Users_Or_Per_user_From_All_Groups.ps1 -Identity "user1@contoso.com" -IncludeOffice365Groups -WhatIf
 
 .DESCRIPTION STEPS
 Step 1: Ensure required modules are installed and updated:
