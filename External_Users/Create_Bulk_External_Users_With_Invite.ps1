@@ -3,7 +3,7 @@
 Create guest users accounts and sends guest invitations to Microsoft 365 users listed in a CSV file.
 
 .DESCRIPTION
-This script reads user information from a CSV file, including display names and email addresses,
+This script connects to Microsoft Graph, reads user information from a CSV file, including display names and email addresses,
 and sends Microsoft 365 guest invitations using the Microsoft Graph PowerShell module.
 It optionally allows sending a customized message to each invited user and redirects
 them to a specified URL upon acceptance.
