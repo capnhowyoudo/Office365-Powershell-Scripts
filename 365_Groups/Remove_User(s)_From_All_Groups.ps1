@@ -105,9 +105,8 @@ user2@contoso.com
 user3@contoso.com
 
 Run the script:
-Import-Csv "C:\Scripts\UsersToRemove.csv" | ForEach-Object {
-.\Remove_User(s)From_All_Groups.ps1 -Identity $.UserPrincipalName -IncludeAADSecurityGroups -IncludeOffice365Groups
-}
+Import-Csv "C:\Scripts\UsersToRemove.csv" | ForEach-Object { & "C:\Scripts\Remove_User(s)_From_All_Groups.ps1" -Identity $_.UserPrincipalName -IncludeAADSecurityGroups -IncludeOffice365Groups }
+
 
 .EXAMPLE
 Test the removal actions without actually removing users:
