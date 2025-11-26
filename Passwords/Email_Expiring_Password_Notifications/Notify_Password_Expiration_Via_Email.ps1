@@ -19,11 +19,9 @@ Total password validity period in days. Default is 90 days.
 
 # Change notification threshold to 5 days
 $NotificationThreshold = 5
-.\Notify_PasswordExpiry.ps1
 
 # Change password expiry threshold to 120 days
 $PasswordExpiryThreshold = 120
-.\Notify_PasswordExpiry.ps1
 #>
 
 # Connect to Microsoft Graph
