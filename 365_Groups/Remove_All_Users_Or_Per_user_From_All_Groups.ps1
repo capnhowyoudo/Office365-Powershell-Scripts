@@ -111,7 +111,7 @@ Remove -WhatIf after testing
 
 cd c:\Scripts
 $csv = Import-Csv .\nameofyoursheet.csv
-.\Remove_All_Users_Or_Per_user_From_All_Groups.ps1 -Identity $csv.UserPrincipalName -WhatIf - Verbose
+.\Remove_All_Users_Or_Per_user_From_All_Groups.ps1 -Identity $csv.UserPrincipalName -WhatIf -Verbose -IncludeOffice365Groups
 
 .EXAMPLE
 Test the removal actions without actually removing users:
