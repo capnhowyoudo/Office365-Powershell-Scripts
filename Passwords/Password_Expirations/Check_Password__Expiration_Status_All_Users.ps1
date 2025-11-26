@@ -13,6 +13,7 @@ Requires Microsoft Graph PowerShell module (Mg) and appropriate permissions.
 #Connect to Microsoft Graph
 Connect-MgGraph -Scopes "User.ReadWrite.All"
 
+#Get all users and check if password expiration is disabled
 Get-MgUser -All -Property UserPrincipalName, PasswordPolicies | Select-Object UserPrincipalName,@{N="PasswordNeverExpires";E={$_.PasswordPolicies -match "DisablePasswordExpiration"}}
 
 #Export to CSV
