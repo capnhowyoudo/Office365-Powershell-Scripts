@@ -20,4 +20,4 @@ Get-MgUser -All -Property UserPrincipalName, PasswordPolicies | Select-Object Us
 Get-MgUser -All -Property UserPrincipalName, PasswordPolicies | Select-Object UserPrincipalName,@{N="PasswordNeverExpires";E={$_.PasswordPolicies -match "DisablePasswordExpiration"}} | Export-Csv "C:\Temp\PasswordNeverExpires.csv" -NoTypeInformation
 
 #Export to HTML
-Get-MGuser -All -Property UserPrincipalName, PasswordPolicies | Select-Object UserprincipalName,@{N="PasswordNeverExpires";E={$_.PasswordPolicies -match "DisablePasswordExpiration"}} | ConvertTo-Html | Out-File "C:\Temp\ReportPasswordNeverExpires.html
+Get-MGuser -All -Property UserPrincipalName, PasswordPolicies | Select-Object UserprincipalName,@{N="PasswordNeverExpires";E={$_.PasswordPolicies -match "DisablePasswordExpiration"}} | ConvertTo-Html | Out-File "C:\Temp\ReportPasswordNeverExpires.html"
