@@ -22,8 +22,10 @@ Use the following command to enable the feature. This change is irreversible.
 
     $Features = @{ synchronizeUpnForManagedUsersEnabled = $true }
     $Body = @{ features = $Features }
+   
     # Get the unique sync ID
     $SyncId = (Get-MgDirectoryOnPremiseSynchronization).Id
+    
     # Enable the feature
     Update-MgDirectoryOnPremiseSynchronization -OnPremisesDirectorySynchronizationId $SyncId -BodyParameter $Body
 
