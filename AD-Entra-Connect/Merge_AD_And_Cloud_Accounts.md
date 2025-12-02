@@ -37,6 +37,10 @@ It is ideal to run all cmdlets on the server that houses Active Directory and Az
 
     Start-ADSyncSyncCycle -PolicyType Delta
 
+  (Optional) In PowerShell: If Azure AD Connect is not installed on the DC, the necessary synchronization commands can be executed remotely to avoid logging onto the AD Connect server. Remove "SERVERNAME" Replace with thename  of the server that has your Entra Connect installed. 
+
+    Invoke-Command -ComputerName SERVERNAME -ScriptBlock { Import-Module ADSync; Start-ADSyncSyncCycle -PolicyType Delta }
+
   4. In M365/Azure AD: Verify the on-premises object is soft-deleted by confirming it appears in the "Deleted users" list in the M365 admin center.
 
   5. In Powershell: Reterive the Direcoty ObjectID GUID of the deleted account
