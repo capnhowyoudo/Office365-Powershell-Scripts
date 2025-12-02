@@ -28,7 +28,7 @@ If Azure AD Connect is not installed on the DC, the necessary synchronization co
 
 Remove "SERVERNAME" Replace with the name of the server that has your Entra Connect installed. 
 
-Replace the below command in Step 3 & 9 if needed. 
+Replace the below cmdlet in Step 3 & 9 if needed. 
 
     Invoke-Command -ComputerName SERVERNAME -ScriptBlock { Import-Module ADSync; Start-ADSyncSyncCycle -PolicyType Delta }
 
