@@ -45,7 +45,7 @@ It is ideal to run all cmdlets on the server that houses Active Directory and Az
 
   6. In PowerShell: Hard-delete the soft-deleted object from the Azure AD recycle bin. This step is critical because a soft-deleted object may still hold the desired Immutable ID, preventing the hard match in Phase 2.
 
-     Note: The DirectoryObjectId is the unique GUID of the deleted user. Replace the placeholder below with the actual GUID you find in step 5
+     - Note: The DirectoryObjectId is the unique GUID of the deleted user. Replace the placeholder below with the actual GUID you find in step 5
 
     Remove-MgDirectoryDeletedItem -DirectoryObjectId AAAAAAA0-0000-0000-0000-000000000000
 
