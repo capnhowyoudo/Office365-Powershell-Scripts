@@ -23,7 +23,14 @@ This process is specifically used to merge two existing user accounts belonging 
 # Note
 
 It is ideal to run all cmdlets on the server that houses Active Directory and Azure AD Connect Synchronization for consistent results
-  
+
+(Optional) In PowerShell: If Azure AD Connect is not installed on the DC, the necessary synchronization commands can be executed remotely to avoid logging onto the AD Connect server. 
+
+Remove "SERVERNAME" Replace with the name of the server that has your Entra Connect installed. 
+
+Replace the below command in Step 3 & 9 if needed. 
+
+    Invoke-Command -ComputerName SERVERNAME -ScriptBlock { Import-Module ADSync; Start-ADSyncSyncCycle -PolicyType Delta }
 
 # Phase 1: Initiate Deletion and Verify
 
@@ -36,10 +43,6 @@ It is ideal to run all cmdlets on the server that houses Active Directory and Az
   3. In PowerShell: Manually start a delta synchronization cycle to push the user's OU change to Azure AD.
 
     Start-ADSyncSyncCycle -PolicyType Delta
-
-  (Optional) In PowerShell: If Azure AD Connect is not installed on the DC, the necessary synchronization commands can be executed remotely to avoid logging onto the AD Connect server. Remove "SERVERNAME" Replace with thename  of the server that has your Entra Connect installed. 
-
-    Invoke-Command -ComputerName SERVERNAME -ScriptBlock { Import-Module ADSync; Start-ADSyncSyncCycle -PolicyType Delta }
 
   4. In M365/Azure AD: Verify the on-premises object is soft-deleted by confirming it appears in the "Deleted users" list in the M365 admin center.
 
