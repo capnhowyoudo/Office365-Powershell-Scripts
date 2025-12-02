@@ -19,7 +19,8 @@ Check the Status (PowerShell)
 
 You need to check the status of the SynchronizeUpnForManagedUsersEnabled feature.
 
-# Requires the Microsoft Graph PowerShell SDK
+Requires the Microsoft Graph PowerShell SDK
+    
     Connect-MgGraph -Scopes "OnPremDirectorySynchronization.Read.All"
     
 #Check UPN Synchronization Feature Status
