@@ -24,7 +24,7 @@ This process is specifically used to merge two existing user accounts belonging 
 
 It is ideal to run all cmdlets on the server that houses Active Directory and Azure AD Connect Synchronization for consistent results
 
-(Optional) In PowerShell: If Azure AD Connect is not installed on the DC, the necessary synchronization commands can be executed remotely to avoid logging onto the AD Connect server. 
+If Azure AD Connect is not installed on the DC, the necessary synchronization commands can be executed remotely to avoid logging onto the AD Connect server. 
 
 Remove "SERVERNAME" Replace with the name of the server that has your Entra Connect installed. 
 
