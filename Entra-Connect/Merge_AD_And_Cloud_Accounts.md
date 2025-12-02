@@ -1,4 +1,4 @@
-# ⚠️ WARNING/DISCLAIMER: Data Loss Risk
+# ⚠️ WARNING/DISCLAIMER: Data Loss Risk 
 
 IMPACT OF HARD DELETION: The hard deletion in Phase 1, Step 6 is permanent and bypasses the Azure AD Recycle Bin. If the GUID of the wrong user object (especially one holding the primary cloud mailbox/data) is used in the Remove-MgDirectoryDeletedItem cmdlet, it will result in the immediate and irreversible loss of all associated data, including the user's Exchange mailbox, OneDrive content, and SharePoint permissions. Always verify the object's identity before executing this command. Proceed with extreme caution.
 
