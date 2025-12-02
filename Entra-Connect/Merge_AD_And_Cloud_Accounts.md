@@ -14,11 +14,11 @@ This process is specifically used to merge two existing user accounts belonging 
 
 # Prerequisites
 
-  Administrative access to On-Premises Active Directory (AD) (e.g., domain: contoso.local).
+  - Administrative access to On-Premises Active Directory (AD) (e.g., domain: contoso.local).
 
-  Administrative access to Microsoft 365 (M365)/Azure AD (e.g., UPN suffix: example.com).
+  - Administrative access to Microsoft 365 (M365)/Azure AD (e.g., UPN suffix: example.com).
 
-  PowerShell with the Microsoft Graph SDK module installed and the necessary permissions granted (User.ReadWrite.All, Organization.Read.All).
+  - PowerShell with the Microsoft Graph SDK module installed and the necessary permissions granted (User.ReadWrite.All, Organization.Read.All).
 
 # Note
 
