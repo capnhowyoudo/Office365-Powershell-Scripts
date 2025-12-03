@@ -114,3 +114,5 @@ We would like to remove an email address and domain name from the Blocked Sender
 
       Get-Mailbox -ResultSize Unlimited | Set-MailboxJunkEmailConfiguration -BlockedSendersAndDomains @{Remove = "spam@gmail.com", "itspam.com"; Add = "junkspam@gmail.com", "junkspam.com" } 
 
+
+     https://o365info.com/safe-senders-blocked-senders-lists-powershell/
