@@ -29,6 +29,10 @@ Additional Notes:
     - Conversion requires Exchange Administrator permissions.
     - Mailboxes converted to shared mailboxes no longer require licenses (depending on workload usage).
     - The script uses ErrorAction SilentlyContinue to avoid termination on failures.
+    
+Verification:
+    After running the script, you can verify mailbox types using:
+    Import-Csv "C:\temp\bulk.csv" | foreach {Get-Mailbox -Identity $_.Email} | ft Name, RecipientTypeDetails
 #>
 
 $MailboxNames = "C:\temp\bulk.csv"
