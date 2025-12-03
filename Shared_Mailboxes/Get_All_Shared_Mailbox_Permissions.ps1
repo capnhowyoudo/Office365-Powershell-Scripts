@@ -12,32 +12,32 @@ as parameters.
 .PARAMETER Note
 To execute the script with MFA-enabled account or non-MFA account, use the below format:
 PowerShell
-./Get_All_Shared_Mailbox_Permissions.ps1
+.\Get_All_Shared_Mailbox_Permissions.ps1
 
 .PARAMETER MBNamesFile
 Export Shared Mailbox Delegates for a single or list of shared mailboxes.
 Provide a text file (e.g., SharedMB.txt) with Display Name, Alias, Distinguished Name, Canonical DN, Email Address, or GUID of Shared Mailboxes.
-Example: ./Get_All_Shared_Mailbox_Permissions.ps1 -MBNamesFile C:/SharedMB.txt
+Example: .\Get_All_Shared_Mailbox_Permissions.ps1 -MBNamesFile C:/SharedMB.txt
 
 .PARAMETER FullAccess
 Export shared mailbox Full Access permissions to CSV. Only explicitly assigned permissions are shown; inherited permissions are ignored.
-Example: ./Get_All_Shared_Mailbox_Permissions.ps1 -FullAccess
+Example: .\Get_All_Shared_Mailbox_Permissions.ps1 -FullAccess
 
 .PARAMETER SendAs
 Filter the output to display only mailboxes which have Send As permissions delegated.
-Example: ./Get_All_Shared_Mailbox_Permissions.ps1 -SendAs
+Example: .\Get_All_Shared_Mailbox_Permissions.ps1 -SendAs
 
 .PARAMETER SendOnBehalf
 Export Shared Mailbox members who have Send on Behalf permission.
-Example: ./Get_All_Shared_Mailbox_Permissions.ps1 -SendOnBehalf
+Example: .\Get_All_Shared_Mailbox_Permissions.ps1 -SendOnBehalf
 
 .PARAMETER AllMailboxes
 List all Shared Mailboxes and their members with permissions.
-Example: ./Get_All_Shared_Mailbox_Permissions.ps1
+Example: .\Get_All_Shared_Mailbox_Permissions.ps1
 
 .PARAMETER GranularReport
 Export a more granular Shared Mailbox Delegates report using multiple filters.
-Example: ./Get_All_Shared_Mailbox_Permissions.ps1 -FullAccess -SendAs
+Example: .\Get_All_Shared_Mailbox_Permissions.ps1 -FullAccess -SendAs
 
 .PARAMETER Schedule
 Run the script in Windows Task Scheduler by passing explicit credentials for automation.
