@@ -8,6 +8,7 @@ to open and fully manage the mailbox. The -AutoMapping parameter controls whethe
 mailbox automatically appears in the user’s Outlook profile.
 
 .NOTES
+- Required Module: Exchange Online PowerShell V2 module (ExchangeOnlineManagement).
 - Replace "info@company.com" with the mailbox you want to grant access to.
 - Replace "user@company.com" with the user who should receive access.
 - Set -AutoMapping:$false if you do not want the mailbox to automatically appear in Outlook.
