@@ -12,36 +12,36 @@ as parameters.
 .PARAMETER Note
 To execute the script with MFA-enabled account or non-MFA account, use the below format:
 PowerShell
-./GetSharedMailboxPermissions.ps1
+./Get_All_Shared_Mailbox_Permissions.ps1
 
 .PARAMETER MBNamesFile
 Export Shared Mailbox Delegates for a single or list of shared mailboxes.
 Provide a text file (e.g., SharedMB.txt) with Display Name, Alias, Distinguished Name, Canonical DN, Email Address, or GUID of Shared Mailboxes.
-Example: ./GetSharedMailboxPermissions.ps1 -MBNamesFile C:/SharedMB.txt
+Example: ./Get_All_Shared_Mailbox_Permissions.ps1 -MBNamesFile C:/SharedMB.txt
 
 .PARAMETER FullAccess
 Export shared mailbox Full Access permissions to CSV. Only explicitly assigned permissions are shown; inherited permissions are ignored.
-Example: ./GetSharedMailboxPermissions.ps1 -FullAccess
+Example: ./Get_All_Shared_Mailbox_Permissions.ps1 -FullAccess
 
 .PARAMETER SendAs
 Filter the output to display only mailboxes which have Send As permissions delegated.
-Example: ./GetSharedMailboxPermissions.ps1 -SendAs
+Example: ./Get_All_Shared_Mailbox_Permissions.ps1 -SendAs
 
 .PARAMETER SendOnBehalf
 Export Shared Mailbox members who have Send on Behalf permission.
-Example: ./GetSharedMailboxPermissions.ps1 -SendOnBehalf
+Example: ./Get_All_Shared_Mailbox_Permissions.ps1 -SendOnBehalf
 
 .PARAMETER AllMailboxes
 List all Shared Mailboxes and their members with permissions.
-Example: ./GetSharedMailboxPermissions.ps1
+Example: ./Get_All_Shared_Mailbox_Permissions.ps1
 
 .PARAMETER GranularReport
 Export a more granular Shared Mailbox Delegates report using multiple filters.
-Example: ./GetSharedMailboxPermissions.ps1 -FullAccess -SendAs
+Example: ./Get_All_Shared_Mailbox_Permissions.ps1 -FullAccess -SendAs
 
 .PARAMETER Schedule
 Run the script in Windows Task Scheduler by passing explicit credentials for automation.
-Example: <script location>\GetSharedMailboxPermissions.ps1 -UserName <AdminName> -Password <Password>
+Example: <script location>\Get_All_Shared_Mailbox_Permissions.ps1 -UserName <AdminName> -Password <Password>
 
 .PARAMETER UserName
 Specify the username for a non-MFA account when running the script in a scheduled task or passing credentials explicitly.
@@ -56,11 +56,9 @@ The script ignores inherited permissions and “SELF” mailbox access, showing 
 For detailed execution guidance, see: https://o365reports.com/2020/01/03/shared-mailbox-permission-report-to-csv/
 
 Additional Notes:
-- Combine multiple filters during execution for granular reports (e.g., ./GetSharedMailboxPermissions.ps1 -FullAccess -SendAs).
+- Combine multiple filters during execution for granular reports (e.g., ./Get_All_Shared_Mailbox_Permissions.ps1 -FullAccess -SendAs).
 - Scheduler-friendly: Credentials can be passed to automate report generation.
 - For detailed script execution:  https://o365reports.com/2020/01/03/shared-mailbox-permission-report-to-csv/
-#>
-
 #>
 
 #Accept input paramenters
