@@ -46,26 +46,7 @@ Additional Notes:
 - Outputs results to a CSV file with mailbox details and optional filters applied.
 - Replace mailbox addresses, file paths, or output locations with your environment’s generic placeholders as needed.
 #>
-
-<#
-=============================================================================================
-Name:           Export all shared mailboxes in Office 365
-Version:        1.0
-Website:        o365reports.com
-
-Script Highlights: 
-~~~~~~~~~~~~~~~~~
-1.The script uses modern authentication to connect to Exchange Online.    
-2.The script can be executed with an MFA-enabled account too.    
-3.Exports report results to CSV file.    
-4.It helps to identify shared mailboxes with licenses separately.  
-5.Helps to track email forwarding configured shared mailboxes. 
-6.Automatically installs the EXO V2 module (if not installed already) upon your confirmation.   
-7.The script is scheduler-friendly. I.e., Credentials can be passed as a parameter instead of getting interactively.
-
-For detailed script execution:  https://o365reports.com/2022/07/13/get-shared-mailbox-in-office-365-using-powershell
-============================================================================================
-#>Param
+Param
 (
     [Parameter(Mandatory = $false)]
     [switch]$LicensedOnly,
