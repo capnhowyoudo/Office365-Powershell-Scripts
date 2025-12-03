@@ -18,6 +18,10 @@ Additional Notes:
     - The mailbox will remain assigned to the user until converted.
     - After conversion, you may assign Full Access, Send As, or Send On Behalf permissions 
       using the appropriate permission cmdlets.
+
+Verification:
+    After running the script, you can verify mailbox types using:
+    Get-Mailbox -Identity "user@example.com" | Format-Table Name, RecipientTypeDetails
 #>
 
 Set-Mailbox "user@example.com" -Type Shared
