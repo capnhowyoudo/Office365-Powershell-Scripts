@@ -22,7 +22,6 @@ Additional Notes:
     - OnPremisesSyncEnabled = $null or False indicates the group is cloud-only.
     - Useful for auditing, migration, or verifying group sync status.
     - Update the CSV file path as needed.
-    - Replace group names, descriptions, or email addresses with generic placeholders if documenting.
 #>
 
 # Connect to Microsoft Graph
