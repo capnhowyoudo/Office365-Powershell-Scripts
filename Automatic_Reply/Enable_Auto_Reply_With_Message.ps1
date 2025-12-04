@@ -23,4 +23,5 @@ This example works in both **Exchange On-Prem** and **Exchange Online**.
 #>
 
 # Set mailbox auto-reply configuration
+
 Set-MailboxAutoReplyConfiguration -Identity "SharedMailboxName" -AutoReplyState Enabled -InternalMessage "Your internal auto-reply message here." -ExternalMessage "Your external auto-reply message here."
