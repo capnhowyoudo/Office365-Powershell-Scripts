@@ -15,7 +15,6 @@ Module Required:
 Additional Notes:
     - Administrative permissions are required to modify mailbox junk email settings.
     - This change applies to every mailbox returned by Get-Mailbox.
-    - Use Get-MailboxJunkEmailConfiguration to verify settings if needed.
-#>
+    #>
 
 Get-Mailbox | Set-MailboxJunkEmailConfiguration -Enabled $true
