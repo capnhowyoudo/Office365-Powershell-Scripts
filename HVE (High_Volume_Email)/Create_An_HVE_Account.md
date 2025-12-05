@@ -88,7 +88,7 @@ If your organization is using Conditional Access policies, the Security Defaults
 
 You can download the SMTP Test Tool from the following location:
 
-https://github.com/capnhowyoudo/Lite-Weight-Applications/blob/main/Email_Test_Tool/Test_Email_Tool.exe
+https://raw.githubusercontent.com/capnhowyoudo/Lite-Weight-Applications/refs/heads/main/Email_Test_Tool/Test_Email_Tool.exe
 
 The tool will automatically check for the MailKit module. If the module is not installed, it will download and install it from PowerShell Gallery automatically.
 
