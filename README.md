@@ -6,22 +6,23 @@
 
 A collection of PowerShell cmdlets and scripts designed for Office 365 administration.
 
-- Required: ExchangeOnline Module 
-
-- Required: Microsoft.Graph Module
-
 > :information_source: You must first connect with one of the modules listed below before running any cmdlets or scripts. 
 > 1. Connect-ExchangeOnline
 > 2. Connect-MgGraph -Scopes "User.ReadWrite.All","Group.ReadWrite.All" 
 
-Supported PowerShell: PowerShell 5.1 / PowerShell 7+ (specify whichever applies)
+# Supported PowerShell: 
+1. PowerShell 5.1 
+2. PowerShell 7+
 
 # Requirements
 
-PowerShell 7+ or Windows PowerShell 5.1
-Admin privileges (only if required by the script actions)
+- ExchangeOnline Module 
+- Microsoft.Graph Module
+- PowerShell 7+
+- Windows PowerShell 5.1
+- Admin privileges (only if required by the script actions)
 
-:warning: High-level disclaimer
+# :warning: High-level disclaimer
 
 These PowerShell scripts are provided as-is, without warranty of any kind. By running or using these scripts you accept full responsibility for any consequences — including data loss, system instability, security issues, or legal/regulatory impacts. Do not run these scripts on production systems unless you understand every line and have tested them in a safe environment.
 
