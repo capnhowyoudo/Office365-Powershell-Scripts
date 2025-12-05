@@ -6,10 +6,6 @@
 
 A collection of PowerShell cmdlets and scripts designed for Office 365 administration.
 
-> :information_source: You must first connect with one of the modules listed below before running any cmdlets or scripts. 
-> 1. Connect-ExchangeOnline
-> 2. Connect-MgGraph -Scopes "User.ReadWrite.All","Group.ReadWrite.All" 
-
 # Supported PowerShell: 
 1. PowerShell 5.1 
 2. PowerShell 7+
@@ -21,6 +17,11 @@ A collection of PowerShell cmdlets and scripts designed for Office 365 administr
 - PowerShell 7+
 - Windows PowerShell 5.1
 - Admin privileges (only if required by the script actions)
+
+
+> :information_source: You must first connect with one of the modules listed below before running any cmdlets or scripts. 
+> 1. Connect-ExchangeOnline
+> 2. Connect-MgGraph -Scopes "User.ReadWrite.All","Group.ReadWrite.All" 
 
 # :warning: High-level disclaimer
 
