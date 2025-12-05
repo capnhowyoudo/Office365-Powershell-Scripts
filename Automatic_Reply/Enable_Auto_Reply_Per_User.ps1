@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-Enables automatic replies for a mailbox.
+Enables automatic replies for a mailbox or a shared mailbox.
 
 .DESCRIPTION
 This cmdlet enables automatic replies for the specified mailbox by setting the
