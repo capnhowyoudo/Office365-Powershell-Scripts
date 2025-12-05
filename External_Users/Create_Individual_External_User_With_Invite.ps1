@@ -12,14 +12,30 @@ REQUIRES:
 - Permission scope: User.Invite.All
 
 .EXAMPLE
-This example invites external.user@example.com as a guest user:
+Example 1:
+Invite John Doe (fake external user):
 
-New-MgInvitation -InvitedUserEmailAddress "external.user@example.com" `
+New-MgInvitation -InvitedUserEmailAddress "john.doe.external@examplemail.net" `
     -SendInvitationMessage $true `
-    -InvitedUserDisplayName "External User Name" `
+    -InvitedUserDisplayName "John Doe" `
+    -InviteRedirectUrl "https://portal.contosoapps.net"
+
+Example 2:
+Invite Sarah Smith with a redirect to MyApps:
+
+New-MgInvitation -InvitedUserEmailAddress "sarah.smith.guest@fakemail.org" `
+    -SendInvitationMessage $true `
+    -InvitedUserDisplayName "Sarah Smith" `
     -InviteRedirectUrl "https://myapps.microsoft.com"
 
-This will create the guest account and send the invitation email.
+Example 3:
+Invite Robert Turner from a partner company:
+
+New-MgInvitation -InvitedUserEmailAddress "robert.turner@partnerco-demo.biz" `
+    -SendInvitationMessage $true `
+    -InvitedUserDisplayName "Robert Turner" `
+    -InviteRedirectUrl "https://teams.microsoft.com"
+
 #>
 
 # Connect to Microsoft Graph (requires User.Invite.All)
