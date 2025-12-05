@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-Configures automatic reply settings for a mailbox & shared mailbox, enabling internal and external auto-reply messages.
+Configures automatic reply settings for a mailbox or a shared mailbox, enabling internal and external auto-reply messages.
 
 .DESCRIPTION
 This cmdlet enables automatic replies for the specified mailbox and applies the provided
