@@ -24,7 +24,7 @@ John Doe,john.doe@example.com
 Jane Smith,jane.smith@example.com
 
 Example Usage:
-Create_Bulk_External_Users_With_Invite.ps1
+Create_Bulk_Guest_Users_With_Invite.ps1
 #>
 
 # --- Connect to MSGraph ---
