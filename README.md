@@ -1,4 +1,7 @@
 # Office365-Powershell-Scripts
+
+:heavy_exclamation_mark: I do not take credit for all of the scripts in this repository. Some scripts were created by others and may have been slightly modified—or not modified at all. Any script that was not originally written by me will retain the original author’s name in the notes section.
+
 A collection of PowerShell cmdlets and scripts designed for Office 365 administration.
 
 - Required: ExchangeOnline Module 
@@ -8,11 +11,11 @@ A collection of PowerShell cmdlets and scripts designed for Office 365 administr
 You must first connect with Connect-ExchangeOnline or Connect-MgGraph -Scopes "User.ReadWrite.All","Group.ReadWrite.All" before running any cmdlets or scripts. 
 
 
-# ⚠️ Use At Your Own Risk — PowerShell Scripts
+:warning: Use At Your Own Risk — PowerShell Scripts
 
 Supported PowerShell: PowerShell 5.1 / PowerShell 7+ (specify whichever applies)
 
-# ⚠️ High-level disclaimer
+:warning: High-level disclaimer
 
 # Requirements
 
