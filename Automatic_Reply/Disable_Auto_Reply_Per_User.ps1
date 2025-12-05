@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-Disables automatic replies for a mailbox.
+Disables automatic replies for a mailbox or a shared mailbox.
 
 .DESCRIPTION
 This cmdlet turns off auto-reply functionality for the specified mailbox by setting the
