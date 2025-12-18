@@ -20,6 +20,10 @@ Parameters:
 Compatibility:
 - Works in both Exchange Online and on-premises Exchange environments.
 
+Additional notes:
+- To forward emails without keeping copies in the original mailbox, set 
+  -DeliverToMailboxAndForward $false or remove the parameter entirely.
+
 The Set-Mailbox cmdlet is available after connecting to Exchange Online
 using Connect-ExchangeOnline or in the Exchange Management Shell for on-premises Exchange.
 #>
