@@ -46,3 +46,34 @@ Source:
     IIF(IsPresent([msDS-cloudExtensionAttribute1]),IIF([msDS-cloudExtensionAttribute1]="HideFromGAL",True,False),NULL)
 
 <img width="601" height="400" alt="image" src="https://github.com/user-attachments/assets/8c3d76da-b0f6-4dfd-a5f7-4250765d2d17" />
+
+Now perform an initial sync
+
+    Start-ADSyncSyncCycle -PolicyType Initial
+
+<img width="1203" height="272" alt="image" src="https://github.com/user-attachments/assets/5e5e74df-3a0b-4dce-98d4-2af331011c17" />
+
+# Hide the user from AD by setting the attribute
+
+<img width="1128" height="795" alt="image" src="https://github.com/user-attachments/assets/45813d79-1584-455d-82df-0eb5b9fa9350" />
+
+Select the Attributes Editor tab, find msDS-cloudExtensionAttribute1 and enter the value HideFromGAL 
+
+:information_source: (Note: The value must be exactly the same as defined in the AD Connect Rule, case sensitive), click OK and OK to close out of the editor. 
+
+<img width="602" height="534" alt="image" src="https://github.com/user-attachments/assets/97e51a2e-7978-452c-81bd-d439ef1e55af" />
+
+Continue with a AD Connect DELTA Sync:
+
+    Start-ADSyncSycnCycle -PolicyType Delta
+
+<img width="1203" height="163" alt="image" src="https://github.com/user-attachments/assets/8b6276ab-b56a-4f0c-856d-a81a37399428" />
+
+Continue with the Export from CUSTOMEDOMAIN.onmicrosoft.com and verify the Update. There must be a count of min. 1, the user where the Attribute was changed
+
+<img width="1203" height="948" alt="image" src="https://github.com/user-attachments/assets/12430a97-2f7d-4deb-87f4-cb52de7399f4" />
+
+Select the user account that is listed and click Properties.  On the Connector Space Object Properties, you should see Azure AD Connect triggered an add to Azure AD to set msExchHideFromAddressLists set to true
+
+<img width="1114" height="908" alt="image" src="https://github.com/user-attachments/assets/592190dc-bff9-4bc8-a808-a674bd7a602d" />
+
