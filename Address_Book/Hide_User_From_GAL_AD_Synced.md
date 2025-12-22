@@ -59,7 +59,7 @@ Now perform an initial sync
 
 Select the Attributes Editor tab, find **msDS-cloudExtensionAttribute1** and enter the value **HideFromGAL**
 
-:information_source: (Note: The value must be exactly the same as defined in the AD Connect Rule, case sensitive), click OK and OK to close out of the editor. 
+> :information_source: (Note: The value must be exactly the same as defined in the AD Connect Rule, case sensitive), click OK and OK to close out of the editor. 
 
 <img width="602" height="534" alt="image" src="https://github.com/user-attachments/assets/97e51a2e-7978-452c-81bd-d439ef1e55af" />
 
