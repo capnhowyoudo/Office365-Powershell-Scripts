@@ -57,7 +57,7 @@ Now perform an initial sync
 
 <img width="1128" height="795" alt="image" src="https://github.com/user-attachments/assets/45813d79-1584-455d-82df-0eb5b9fa9350" />
 
-Select the Attributes Editor tab, find msDS-cloudExtensionAttribute1 and enter the value HideFromGAL 
+Select the Attributes Editor tab, find **msDS-cloudExtensionAttribute1** and enter the value **HideFromGAL**
 
 :information_source: (Note: The value must be exactly the same as defined in the AD Connect Rule, case sensitive), click OK and OK to close out of the editor. 
 
@@ -73,7 +73,7 @@ Continue with the Export from CUSTOMEDOMAIN.onmicrosoft.com and verify the Updat
 
 <img width="1203" height="948" alt="image" src="https://github.com/user-attachments/assets/12430a97-2f7d-4deb-87f4-cb52de7399f4" />
 
-Select the user account that is listed and click Properties.  On the Connector Space Object Properties, you should see Azure AD Connect triggered an add to Azure AD to set msExchHideFromAddressLists set to true
+Select the user account that is listed and click **Properties**.  On the **Connector Space Object Properties**, you should see Azure AD Connect triggered an **add** to Azure AD to set **msExchHideFromAddressLists** set to true
 
 <img width="1114" height="908" alt="image" src="https://github.com/user-attachments/assets/592190dc-bff9-4bc8-a808-a674bd7a602d" />
 
