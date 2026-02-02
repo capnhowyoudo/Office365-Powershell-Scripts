@@ -34,9 +34,7 @@ Press Enter
 6. An Office box will show briefly and disappear. You can close the cmd prompt once it closes.
 7. open Word and go to Account > Office Updates. Click Update Now.
 
-<img width="135" height="700" alt="image" src="https://github.com/user-attachments/assets/3dd04f1d-71de-4485-83ec-4ce5938a11e3" />
-
-<img width="442" height="749" alt="image" src="https://github.com/user-attachments/assets/71b42e61-9c8c-405a-b958-440c29687e52" />
+<img width="577" height="690" alt="image" src="https://github.com/user-attachments/assets/e446ea0e-3aee-4eb9-9e01-be016c88757f" />
 
 8. Wait a five minutes, then reboot your computer
 
