@@ -22,7 +22,7 @@ This process is specifically used to merge two existing user accounts belonging 
 
 # Note
 
-It is ideal to run all cmdlets on the server that houses Active Directory and Azure AD Connect Synchronization for consistent results
+It is ideal to run all cmdlets on the server that houses Active Directory and Azure AD Connect Synchronization for consistent results.
 
 If Azure AD Connect is not installed on the DC, the necessary synchronization commands can be executed remotely to avoid logging onto the AD Connect server. 
 
