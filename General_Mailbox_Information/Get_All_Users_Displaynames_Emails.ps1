@@ -3,8 +3,8 @@
 Retrieves the display names and email addresses of all users.
 #>
 
-Get-Mailbox | Select-Object DisplayName,PrimarySmtpAddress
+Get-Mailbox -ResultSize Unlimited | Select-Object DisplayName, PrimarySmtpAddress, RecipientTypeDetails
 
 #export to CSV
 
-Get-Mailbox | Select-Object DisplayName,PrimarySmtpAddress | Export-Csv -Path "C:\Temp\Mailboxes.csv" -NoTypeInformation -Encoding UTF8
+Get-Mailbox -ResultSize Unlimited | Select-Object DisplayName, PrimarySmtpAddress, RecipientTypeDetails | Export-Csv -Path "C:\Temp\Mailboxes.csv" -NoTypeInformation -Encoding UTF8
