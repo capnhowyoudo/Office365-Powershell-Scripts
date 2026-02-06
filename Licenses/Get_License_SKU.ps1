@@ -13,7 +13,7 @@ Ensure you have permission to use the specified scopes.
 All properties from Get-MgSubscribedSku are exported without filtering.  
 Adjust the CSV path as needed.
 
-#Connect to MS Graph Private Window (Some cmdlets may not work, known bug when using  -UseDeviceCode)
+Optional Connect to MS Graph Private Window (Some cmdlets may not work, known bug when using  -UseDeviceCode)
 Connect-Graph -Scopes User.ReadWrite.All, Organization.Read.All -UseDeviceCode
 #>
 
