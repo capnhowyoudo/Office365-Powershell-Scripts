@@ -22,7 +22,7 @@ user1@example.com
 user2@example.com
 user3@example.com
 
-#Connect to MS Graph Private Window (Some cmdlets may not work, known bug when using  -UseDeviceCode)
+Optional Connect to MS Graph Private Window (Some cmdlets may not work, known bug when using  -UseDeviceCode)
 Connect-Graph -Scopes User.ReadWrite.All, Organization.Read.All -UseDeviceCode
 #>
 
