@@ -18,6 +18,9 @@ user3@example.com
 The file path in the script uses C:\Temp\Accounts.txt.
 
 Sku's can be found with this script https://github.com/capnhowyoudo/Office365-Powershell-Scripts/blob/main/Licenses/Get_License_SKU.ps1
+
+Optional Connect to MS Graph Private Window (Some cmdlets may not work, known bug when using  -UseDeviceCode)
+Connect-Graph -Scopes User.ReadWrite.All, Organization.Read.All -UseDeviceCode
 #>
 
 Connect-MgGraph -Scopes "User.ReadWrite.All","Directory.ReadWrite.All"
