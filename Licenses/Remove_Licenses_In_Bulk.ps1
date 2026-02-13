@@ -21,6 +21,12 @@ Sku's can be found with this script https://github.com/capnhowyoudo/Office365-Po
 
 Optional Connect to MS Graph Private Window (Some cmdlets may not work, known bug when using  -UseDeviceCode)
 Connect-Graph -Scopes User.ReadWrite.All, Organization.Read.All -UseDeviceCode
+
+Note: If you connect using a private/incognito browser window, you may encounter the following error:
+
+Set-MgUserLicense : "DeviceCodeCredential authentication failed: Object reference not set to an instance of an object"
+
+If this occurs, avoid using -UseDeviceAuthentication or -UseDeviceCode. Instead, connect using the command shown below.
 #>
 
 Connect-MgGraph -Scopes "User.ReadWrite.All","Directory.ReadWrite.All"
