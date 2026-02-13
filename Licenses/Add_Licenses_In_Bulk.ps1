@@ -23,7 +23,7 @@ user2@example.com
 user3@example.com
 
 Optional Connect to MS Graph Private Window (Some cmdlets may not work, known bug when using  -UseDeviceCode)
-Connect-Graph -Scopes User.ReadWrite.All, Organization.Read.All -UseDeviceCode
+Connect-Graph -Scopes User.ReadWrite.All, Organization.Read.All -UseDeviceCode (note if you use a private window you may get the following error Get-MgSubscribedSku : DeviceCodeCredential authentication failed: Object reference not set to an instance of an object) If so do not use -UseDeviceCode
 #>
 
 Connect-Graph -Scopes User.ReadWrite.All, Organization.Read.All
