@@ -15,7 +15,7 @@ To change the license being assigned, update the SkuPartNumber value in the foll
 $sku = Get-MgSubscribedSku -All | Where-Object SkuPartNumber -eq 'O365_BUSINESS_ESSENTIALS'
 
 You can view available SKU part numbers by running:
-Get-MgSubscribedSku | Select SkuPartNumber
+Get-MgSubscribedSku | Select-Object SkuPartNumber, @{n='Total';e={$_.PrepaidUnits.Enabled}}, @{n='Used';e={$_.ConsumedUnits}} | FT -AutoSize
 
 The accounts file should contain one user principal name (UPN) or user ID per line, for example:
 user1@example.com
