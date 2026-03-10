@@ -13,6 +13,9 @@
     - Prerequisites: You must have Global Admin or Exchange Admin privileges.
     - Replaces: Legacy 'Import-RMSTrustedPublishingDomain' (not needed for Azure RMS).
     - Author: Adapted for VisualFusion Environment.
+    - Required Modules: 
+        1. AIPService (replaces AADRM)
+        2. ExchangeOnlineManagement (V3)
 
     LICENSING REQUIREMENTS:
     To use IRM/Encryption, the SENDER must have one of the following:
