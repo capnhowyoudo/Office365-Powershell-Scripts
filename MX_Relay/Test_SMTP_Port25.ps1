@@ -47,7 +47,7 @@
     Read/write timeout in milliseconds for the TCP stream. Defaults to 5000.
 
 .NOTES
-    Author      : Systems Administrator
+    Author      : capnhowyoudo@yahoo.com
     Version     : 1.1
     Created     : 2026-06-01
     Requires    : PowerShell 5.1 or later (Windows); no external modules needed
