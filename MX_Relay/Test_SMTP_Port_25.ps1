@@ -71,10 +71,10 @@
     USAGE EXAMPLES
     --------------
     # Run with defaults defined in the Variables section below:
-        .\Test_SMTP_Port25.ps1
+        .\Test_SMTP_Port_25.ps1
 
     # Quick one-liner override using dot-sourcing or editing variables:
-        $MXRelay = "mail.example.com"; .\Test_SMTP_Port25.ps1
+        $MXRelay = "mail.example.com"; .\Test_SMTP_Port_25.ps1
 #>
 
 # ==============================================================================
