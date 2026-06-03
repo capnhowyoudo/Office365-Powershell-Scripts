@@ -83,8 +83,8 @@
 
 $MXRelay    = "mail-relay.example.com"          # Target MX relay FQDN
 $Port       = 25                                 # SMTP port (typically 25)
-$From       = "sender@yourdomain.com"            # MAIL FROM address
-$To         = "recipient@yourdomain.com"         # RCPT TO address
+$From       = "sender@yourdomain.com"            # MAIL FROM address (This can be anything you want it to be as long as its @ the domain you are testing)
+$To         = "recipient@yourdomain.com"         # RCPT TO address (This must be an email inside the domain you are testing with)
 $EhloDomain = "yourdomain.com"                   # Domain used in EHLO greeting
 $TimeoutMs  = 5000                               # TCP stream timeout (ms)
 
