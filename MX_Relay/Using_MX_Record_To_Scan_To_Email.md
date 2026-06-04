@@ -128,6 +128,19 @@ Copy or note the IP address exactly as shown
 
 ---
 
+## Before You Begin — Check for an Existing Connector
+
+Before creating a new connector, verify one does not already exist:
+
+- Go to [admin.exchange.microsoft.com](https://admin.exchange.microsoft.com)
+- Navigate to **Mail flow** → **Connectors**
+- Look for any existing connector named **Scan to Email Relay** or similar
+- If one exists, confirm the IP address listed matches your current public IP before creating a new one
+
+> ⚠️ **Do not create a duplicate connector.** If one already exists with the correct IP, skip this guide and proceed to the next step.
+
+---
+
 ## Step 1 — Sign into Exchange Admin Center
 
 - Go to [admin.exchange.microsoft.com](https://admin.exchange.microsoft.com)
