@@ -248,7 +248,7 @@ Use this method if the Connection Filter Policy is not visible in the UI.
 ### Add the IP
 
 ```powershell
-Set-HostedConnectionFilterPolicy -Identity Default -IPAllowList @{Add="YOUR.IP.ADDRESS"}
+Set-HostedConnectionFilterPolicy -Identity Default -IPAllowList @{Add="YOUR.PublicIP.ADDRESS"}
 ```
 
 ### Verify It Was Added
