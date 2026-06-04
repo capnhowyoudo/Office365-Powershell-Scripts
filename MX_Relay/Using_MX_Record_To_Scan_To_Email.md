@@ -130,6 +130,8 @@ Copy or note the IP address exactly as shown
 
 ## Before You Begin — Check for an Existing Connector
 
+> ℹ️ **Note:** If you are working with multiple sites, each site's public IP address will need to be added to the connector.
+
 Before creating a new connector, verify one does not already exist:
 
 - Go to [admin.exchange.microsoft.com](https://admin.exchange.microsoft.com)
@@ -223,6 +225,8 @@ Confirm the summary shows the following before proceeding:
 # Add the IP to the Connection Filter Policy
 
 This is separate from "Allowed senders/domains" — it works at the IP level before content filtering even runs.
+
+> ℹ️ **Note:** If you are working with multiple sites, each site's public IP address will need to be added to the Connection Filter Policy.
 
 ---
 
