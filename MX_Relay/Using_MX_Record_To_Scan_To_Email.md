@@ -320,4 +320,42 @@ Select **"Modify the message properties"** from the dropdown list
 > **Note:** Allow up to **30 minutes** for this rule to propagate before testing.
 > SCL -1 tells Exchange to bypass junk filtering entirely for mail coming from your scanner.
 
+# Configuring the Printer for Scan to Email
 
+---
+
+## SMTP Settings
+
+Enter the following settings on your printer or MFP (multifunction printer) control panel or web interface:
+
+| Setting | Value |
+|---|---|
+| **SMTP Server** | `yourdomain-com.mail.protection.outlook.com` |
+| **Port** | `25` |
+| **From Address** | `scans@yourdomain.com` |
+| **SSL/TLS** | Disabled |
+| **Authentication** | None |
+
+---
+
+## Notes
+
+- The **SMTP Server** is your Microsoft 365 MX endpoint. You can find your exact MX record in:
+  **Microsoft 365 Admin Center** → **Settings** → **Domains** → click your domain → **DNS records**
+
+- The **From Address** can be any address as long as it uses your organization's domain
+  (e.g. `scans@yourdomain.com`, `printer@yourdomain.com`, `noreply@yourdomain.com`)
+
+- **No username or password is required** — authentication is handled by the inbound connector
+  matching your public IP address
+
+- **Port 25** must be open on your firewall/router for outbound traffic to Microsoft 365
+
+---
+
+> ⚠️ **Before configuring the printer**, make sure you have completed the following steps:
+> - Inbound connector created in Exchange Admin Center with your public IP
+> - SPF record updated to include your public IP
+> - Connection filter policy updated with your public IP
+>
+> If emails are still going to junk after configuring the printer, proceed to the SCL -1 Mail Flow Rule step.
