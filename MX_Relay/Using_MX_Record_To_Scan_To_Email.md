@@ -103,8 +103,208 @@ If the connection fails, verify that:
 * DNS resolution is functioning correctly.
 * The MX record is configured correctly.
 
+# How to Find Your Public IP Using ipcow.com
+Step 1 — Open a Browser
+On a computer connected to the same network as your scanner, open any web browser (Chrome, Edge, Firefox)
 
+Step 2 — Go to the Site
+Type in the address bar:
+www.ipcow.com
+Press Enter
 
+Step 3 — Your IP is Displayed
+Your public IP address will be shown at the top of the page automatically — no searching or clicking needed. It will look something like:
 
+Your IP: 203.0.113.10
+
+Step 4 — Write It Down
+Copy or note the IP address exactly as shown
+
+> ⚠️ Important Tips
+>
+>  Must be done from the scanner's network — if you check from a phone on cellular data or a VPN, you'll get the wrong IP If you have multiple locations, check from each site separately as each will have a different public IP If the IP shown is different from 75.149.202.49 already in your connector, that's likely why scans are going to junk — the connector IP won't match and you'll need to update it
+
+# Creating an Inbound Connector in Microsoft 365
+
+---
+
+## Step 1 — Sign into Exchange Admin Center
+
+- Go to [admin.exchange.microsoft.com](https://admin.exchange.microsoft.com)
+- Sign in with your admin credentials
+
+---
+
+## Step 2 — Navigate to Connectors
+
+- On the left menu click **Mail flow**
+- Click **Connectors**
+- Click **+ Add a connector**
+
+---
+
+## Step 3 — Set the Connection Type
+
+- Under **Connection from** select **Your organization's email server**
+- Under **Connection to** select **Office 365**
+- Click **Next**
+
+---
+
+## Step 4 — Name Your Connector
+
+- **Name:** `Scan to Email Relay`
+- **Description:** `Inbound connector for scanner/MFP relay`
+- Make sure **Turn it on** is checked
+- Click **Next**
+
+---
+
+## Step 5 — Identify the Sending Server
+
+- Select **"By verifying that the sender's IP address matches one of these IP addresses"**
+- Click **+** to add your IP address
+- Enter your public IP:
+
+```text
+203.0.113.10
+```
+
+- Click **Save** then **Next**
+
+---
+
+## Step 6 — Security Restrictions
+
+- Select **"None — do not use transport layer security (TLS)"** if your scanner does not support TLS
+- If your scanner supports TLS select **"Any digital certificate, including self-signed certificates"**
+- Click **Next**
+
+---
+
+## Step 7 — Review Settings
+
+Confirm the summary shows the following before proceeding:
+
+| Field | Value |
+|---|---|
+| From | Your organization's email server |
+| To | Office 365 |
+| IP Address | Your public IP |
+
+- Click **Create connector**
+
+---
+
+## Step 8 — Confirm It's Active
+
+- Back on the Connectors page confirm the new connector shows **Status: On**
+- Allow **15–30 minutes** for it to take effect
+
+---
+
+> ℹ️ **After Creating the Connector**
+> The connector alone identifies where mail is coming from but does not bypass junk filtering.
+> Proceed to the next step to create the SCL -1 Mail Flow Rule if emails continue to go to junk.
+
+# Add the IP to the Connection Filter Policy
+
+This is separate from "Allowed senders/domains" — it works at the IP level before content filtering even runs.
+
+---
+
+## Method 1 — GUI (security.microsoft.com)
+
+1. Go to [security.microsoft.com](https://security.microsoft.com)
+2. Navigate to **Email & Collaboration** → **Policies & Rules** → **Threat Policies** → **Anti-spam**
+3. Click **Connection filter policy (Default)**
+4. Click **Edit connection filter policy**
+5. Under **Always allow messages from the following IP addresses or address ranges**, click **+** and add your public IP
+6. Click **Save**
+
+---
+
+## Method 2 — PowerShell
+
+Use this method if the Connection Filter Policy is not visible in the UI.
+
+### Add the IP
+
+```powershell
+Set-HostedConnectionFilterPolicy -Identity Default -IPAllowList @{Add="YOUR.IP.ADDRESS"}
+```
+
+### Verify It Was Added
+
+```powershell
+(Get-HostedConnectionFilterPolicy -Identity Default).IPAllowList
+```
+
+---
+
+> **Note:** This setting works at the IP level before content filtering runs,
+> which is why it is more effective than using the Allowed senders/domains list.
+
+# Create the SCL -1 Mail Flow Rule
+
+> **Note:** Only proceed with this step if emails are still going to junk after completing the
+> previous steps. Allow **15–30 minutes** for the previous changes to take effect before proceeding.
+
+---
+
+## Step 1 — Get to Exchange Admin Center
+
+Go to [admin.exchange.microsoft.com](https://admin.exchange.microsoft.com)
+
+---
+
+## Step 2 — Navigate to Rules
+
+**Mail flow** → **Rules** → **+ Add a rule**
+
+---
+
+## Step 3 — Choose Rule Type
+
+Select **"Modify the message properties"** from the dropdown list
+
+---
+
+## Step 4 — Name the Rule
+
+**Name:** `Scanner Relay Bypass`
+
+---
+
+## Step 5 — Set the Condition
+
+- **Apply this rule if:** `The sender` → **IP address is in any of these ranges or exactly matches**
+- Enter your public IP:
+
+```text
+203.0.113.10
+```
+
+- Click **Add** then **Save**
+
+---
+
+## Step 6 — Set the Action
+
+**Do the following:** `Modify the message properties` → **Set the spam confidence level (SCL) to** → `-1`
+
+---
+
+## Step 7 — Finish
+
+- Leave exceptions blank
+- Set **Mode** to `Enforce`
+- Click **Next** then **Finish**
+- Confirm the rule shows as **Enabled**
+
+---
+
+> **Note:** Allow up to **30 minutes** for this rule to propagate before testing.
+> SCL -1 tells Exchange to bypass junk filtering entirely for mail coming from your scanner.
 
 
