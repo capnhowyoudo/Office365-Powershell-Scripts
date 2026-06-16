@@ -3,7 +3,7 @@
 >
 > Microsoft now charges for **High Volume Email (HVE) accounts** using a **pay-as-you-go billing subscription**.
 >
-> Users who previously had free or legacy HVE access will be subject to usage-based charges going forward. Please review your Microsoft billing settings and subscription plan to avoid unexpected costs.
+> Users who previously had free or legacy HVE access will be subject to usage-based charges going forward. **A billing policy must be configured and linked to an Azure subscription in the Microsoft 365 admin center for the HVE account to function effectively.** Please review your Microsoft billing settings and subscription plan to avoid unexpected costs.
 >
 > ---
 >
@@ -19,13 +19,7 @@
 > - **Setup:** Administrators must configure a billing policy and link the HVE account to an Azure subscription in the Microsoft 365 admin center before the service can send messages.
 >
 > ---
->
-> ### 📚 Resources
-> - [Microsoft High-Volume Mail Documentation](https://learn.microsoft.com/en-us/exchange/mail-flow-best-practices/high-volume-mails-m365)
-> - [Microsoft 365 Blog — HVE Now Available in Exchange Online](https://techcommunity.microsoft.com/blog/microsoft_365blog/high-volume-email-is-now-available-in-exchange-online/4505302)
-> - [Office 365 IT Pros — HVE GA Charging](https://office365itpros.com/2026/04/23/hve-ga-charging/)
-> - [Practical 365 — HVE New Strategy](https://practical365.com/hve-new-strategy/)
-> - [Petri — Exchange Online HVE](https://petri.com/exchange-online-hve/)
+
 
 # How to Configure High Volume Email for Microsoft 365
 
