@@ -1,7 +1,7 @@
 > [!CAUTION]
 > **Disclaimer — Effective June 1st, 2026**
 >
-> Microsoft now charges for **HVE (Hosted Virtual Environment) accounts** using a **pay-as-you-go billing subscription**.
+> Microsoft now charges for **HVE (High Volume Email) accounts** using a **pay-as-you-go billing subscription**.
 >
 > Users who previously had free or legacy HVE access will be subject to usage-based charges going forward. Please review your Microsoft billing settings and subscription plan to avoid unexpected costs.
 >
