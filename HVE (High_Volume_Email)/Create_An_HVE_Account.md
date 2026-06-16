@@ -1,12 +1,31 @@
 > [!CAUTION]
-> **Disclaimer — Effective June 1st, 2026**
+> ## Disclaimer — Effective June 1st, 2026
 >
-> Microsoft now charges for **HVE (High Volume Email) accounts** using a **pay-as-you-go billing subscription**.
+> Microsoft now charges for **High Volume Email (HVE) accounts** using a **pay-as-you-go billing subscription**.
 >
 > Users who previously had free or legacy HVE access will be subject to usage-based charges going forward. Please review your Microsoft billing settings and subscription plan to avoid unexpected costs.
 >
-> For more information, visit the [Microsoft Azure Pricing page](https://azure.microsoft.com/en-us/pricing/).
-
+> ---
+>
+> ### 💰 Pricing
+> Microsoft 365 High Volume Email (HVE) costs **$42 per one million expanded internal recipients** (equivalent to **$0.000042 per recipient**).
+>
+> ---
+>
+> ### 📋 Key Details
+>
+> - **Billing Model:** Operates on a Pay-As-You-Go (PAYG) system, charged through an Azure subscription.
+> - **Usage Limits:** HVE is exclusively designed for large-scale, automated internal communications. It does **not** support sending emails to external addresses.
+> - **Setup:** Administrators must configure a billing policy and link the HVE account to an Azure subscription in the Microsoft 365 admin center before the service can send messages.
+>
+> ---
+>
+> ### 📚 Resources
+> - [Microsoft High-Volume Mail Documentation](https://learn.microsoft.com/en-us/exchange/mail-flow-best-practices/high-volume-mails-m365)
+> - [Microsoft 365 Blog — HVE Now Available in Exchange Online](https://techcommunity.microsoft.com/blog/microsoft_365blog/high-volume-email-is-now-available-in-exchange-online/4505302)
+> - [Office 365 IT Pros — HVE GA Charging](https://office365itpros.com/2026/04/23/hve-ga-charging/)
+> - [Practical 365 — HVE New Strategy](https://practical365.com/hve-new-strategy/)
+> - [Petri — Exchange Online HVE](https://petri.com/exchange-online-hve/)
 
 # How to Configure High Volume Email for Microsoft 365
 
