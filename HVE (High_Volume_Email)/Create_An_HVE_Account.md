@@ -1,3 +1,13 @@
+> [!CAUTION]
+> **Disclaimer — Effective June 1st, 2026**
+>
+> Microsoft now charges for **HVE (Hosted Virtual Environment) accounts** using a **pay-as-you-go billing subscription**.
+>
+> Users who previously had free or legacy HVE access will be subject to usage-based charges going forward. Please review your Microsoft billing settings and subscription plan to avoid unexpected costs.
+>
+> For more information, visit the [Microsoft Azure Pricing page](https://azure.microsoft.com/en-us/pricing/).
+
+
 # How to Configure High Volume Email for Microsoft 365
 
 If your organization sends a lot of emails internally, you can run into a limit, which can cause delays and problems. High Volume Email in Microsoft 365 is a service that allows an organization to send high volumes of internal messages without any rate limits. In this article, you will learn how to configure High Volume Email in Exchange Online.
