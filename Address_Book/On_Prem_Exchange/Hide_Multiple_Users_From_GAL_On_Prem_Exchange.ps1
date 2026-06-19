@@ -15,6 +15,7 @@ Requirements:
 - ActiveDirectory PowerShell module
 - Appropriate AD permissions
 - Exchange schema extensions present in Active Directory
+- Users AD account name
 
 Tested In:
 - Windows Server 2016+
@@ -24,7 +25,7 @@ Example:
 .\Hide_Multiple_Users_From_GAL_On_Prem_Exchange.ps1
 #>
 
-# Hide selected users from Exchange Address Lists / GAL
+# Hide selected users from Exchange Address Lists / GAL 
 # Using generic username examples
 
 $UsersToHide = @(
