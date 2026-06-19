@@ -5,7 +5,8 @@
 .DESCRIPTION
     Sets the msExchHideFromAddressLists attribute to $true on a target AD user
     account, effectively hiding them from Exchange/Outlook address books and
-    the Global Address List. Requires the ActiveDirectory module and sufficient
+    the Global Address List. The username provided must match the SamAccountName
+    of the AD user account. Requires the ActiveDirectory module and sufficient
     permissions to modify AD user attributes.
 
 .NOTES
@@ -16,9 +17,9 @@
     Permissions :  Write access to msExchHideFromAddressLists on target user
 #>
 
-# ------------------------------------------------------- 
-# Set the username of the user to hide from the GAL
-# ------------------------------------------------------- 
+# -------------------------------------------------------------------------
+# Set the username of the user to hide from the GAL (Users AD account name)
+# -------------------------------------------------------------------------
 
 $UserToHide = "user1"
 
