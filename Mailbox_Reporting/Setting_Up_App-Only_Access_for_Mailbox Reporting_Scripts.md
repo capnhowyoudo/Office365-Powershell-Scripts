@@ -47,3 +47,13 @@ This installs the certificate (with its private key) into your current user's ce
 1. Back in the app registration, go to **Certificates & secrets** > **Certificates** tab > **Upload certificate**.
 2. Upload the `.cer` file you exported in step 3.
 3. Click **Add**.
+
+## For future use
+
+Once the app is registered and the certificate is uploaded, keep these three values handy — they're what the script (and any future admin scripts) will need to authenticate:
+
+```powershell
+-AppId "<Application (client) ID from step 1>" `
+-TenantId "<Directory (tenant) ID from step 1>" `
+-CertificateThumbprint "<thumbprint from step 3>"
+```
