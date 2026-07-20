@@ -27,7 +27,7 @@ The scheduler itself is always running, but it can be configured to only run one
 
 To see your current configuration settings, go to PowerShell and run Get-ADSyncScheduler. It shows you something like this picture:
 
-    GetSyncScheduler
+    Get-ADSyncScheduler
 
 <img width="424" height="174" alt="image" src="https://github.com/user-attachments/assets/4d242d69-0b7d-434c-a247-48571ecc3d5f" />
 
