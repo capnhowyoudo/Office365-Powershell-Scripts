@@ -45,7 +45,7 @@ Finish this step by accepting the pay-as-you-go terms and clicking **Next**.
 ### Step 2 — Choose users
 Select who can use this billing profile. Make sure the group you choose includes the Exchange Administrator who is configuring the policy. They don't need to be the person actually paying the bill — that's controlled separately through the Azure subscription settings. This step just determines who can *use* the policy.
 
-### Step 3 — Set a budget
+### Step 3 — Set a budget (Optional)
 HVE costs **$0.000042 per recipient**, so it's unlikely you'll hit a budget cap — but it's good practice to set one anyway in case of runaway code or an out-of-control automation/agent.
 
 Example configuration:
