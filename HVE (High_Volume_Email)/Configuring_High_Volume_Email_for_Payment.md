@@ -2,6 +2,10 @@
 
 High Volume Email (HVE) in Exchange Online has been free to use during its two-plus years in preview. Starting **June 1, 2026**, it will cost **$42 per million recipients** (internal delivery only — HVE does not send to external recipients), billed through an Azure subscription.
 
+## Creating a New HVE Account
+
+If you're setting up an HVE account from scratch rather than updating an existing one, you'll be prompted to select a pay-as-you-go billing policy as part of the account creation process itself.
+
 Here's how to set up billing for it.
 
 ## 1. Check the HVE Admin Portal
@@ -20,7 +24,18 @@ If you already have Microsoft 365 pay-as-you-go billing set up and just need to 
 
 > The **General** tab holds the rest of the HVE settings (covered separately). If there's a problem with the billing policy, it will also show up as an error state on this tab.
 
-## 2. Set Up Pay-As-You-Go Billing
+## 2. Create a Resource Group
+
+If you don't already have a resource group to use for HVE billing, create one first:
+
+1. Log in to **portal.azure.com**.
+2. Go to **Resource groups** → **Create**.
+3. Select your **Subscription ID**.
+4. Give your resource group a name — for example, `All_High_Volume_Email`.
+5. Select your **Region**.
+6. Click **Review + Create**.
+
+## 3. Set Up Pay-As-You-Go Billing
 
 Before assigning a policy, make sure Microsoft 365 pay-as-you-go billing is enabled for your tenant:
 
@@ -45,7 +60,7 @@ Finish this step by accepting the pay-as-you-go terms and clicking **Next**.
 ### Step 2 — Choose users
 Select who can use this billing profile. Make sure the group you choose includes the Exchange Administrator who is configuring the policy. They don't need to be the person actually paying the bill — that's controlled separately through the Azure subscription settings. This step just determines who can *use* the policy.
 
-### Step 3 — Set a budget (Optional)
+### Step 3 — Set a budget
 HVE costs **$0.000042 per recipient**, so it's unlikely you'll hit a budget cap — but it's good practice to set one anyway in case of runaway code or an out-of-control automation/agent.
 
 Example configuration:
@@ -57,17 +72,17 @@ You can also configure who gets notified and which day the budget resets.
 ### Step 4 — Review and create
 The final page summarizes everything you've configured. Review it and click **Create** to finish setting up the policy.
 
-## 3. Connect the Policy to HVE
+## 4. Connect the Policy to HVE
 
 Creating the policy isn't enough on its own — you need to connect it to the High Volume Email service, or it won't appear as an option in the Exchange Admin Center.
 
-From the billing policy page, choose **Connect your services…**
+From the Pay-As-You-Go page's **Choose Services** screen, click **Connect a policy** next to **High Volume Email**, then select the billing policy name you created in **Step 1** under **Set Up Pay-As-You-Go Billing**.
 
 > Along with HVE, you'll also see other pay-as-you-go eligible services listed here, such as **Microsoft 365 Copilot** and **Microsoft 365 Backup**.
 
 Save your changes, then return to the Exchange Online Admin Center.
 
-## 4. Attach the Policy in Exchange Admin Center
+## 5. Attach the Policy in Exchange Admin Center
 
 1. Click **Refresh** on the High Volume Email admin page to load the newly connected policy.
 2. Click **Connect a policy**.
@@ -75,7 +90,3 @@ Save your changes, then return to the Exchange Online Admin Center.
 4. Click **Update** to apply it.
 
 That's it — the account is now billed under the connected policy.
-
-## Creating a New HVE Account
-
-If you're setting up an HVE account from scratch rather than updating an existing one, you'll be prompted to select a pay-as-you-go billing policy as part of the account creation process itself.
