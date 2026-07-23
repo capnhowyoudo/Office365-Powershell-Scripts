@@ -9,8 +9,8 @@
     "as" your own domain without authentication).
 
 .NOTES
-    Author:     
-    Date:       
+    Author:     cpanhowyoudo
+    Date:       7/23/2026
     Requires:   Exchange Online PowerShell module (ExchangeOnlineManagement)
                 and an active connection via Connect-ExchangeOnline.
     Impact:     Setting this to $false lowers the security posture around
