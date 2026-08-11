@@ -20,7 +20,11 @@
 
         To find your environment's EWS URL(s) instead of guessing, run this from an
         Exchange Management Shell (on-prem) session:
-          Get-WebServicesVirtualDirectory | Select Server, InternalUrl, ExternalUrl
+        
+        Get-ExchangeServer | Select Name, Fqdn | ForEach-Object { [PSCustomObject]@{ Server = $_.Name; EwsUrl = "https://$($_.Fqdn)/EWS/Exchange.asmx" } }
+        or
+        Get-WebServicesVirtualDirectory | Select Server, InternalUrl, ExternalUrl
+        
         Use the InternalUrl (or ExternalUrl, if connecting from outside the network)
         value returned for the appropriate CAS server as the -EwsUrl parameter below.
 
