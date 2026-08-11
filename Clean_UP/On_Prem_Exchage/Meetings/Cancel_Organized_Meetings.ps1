@@ -33,13 +33,13 @@
 
 .EXAMPLE
     # Dry run - see what would be canceled
-    .\Cancel-OrganizedMeetings.ps1 -MailboxSmtp "user@example.com" `
+    .\Cancel_Organized_Meetings.ps1 -MailboxSmtp "user@example.com" `
         -EwsUrl "https://mail.example.com/EWS/Exchange.asmx" -IgnoreSslErrors `
         -ExplicitCredential $cred -SubjectFilter "Filter Audit","New Berlin Inventory (Weekly)"
 
 .EXAMPLE
     # Actually cancel
-    .\Cancel-OrganizedMeetings.ps1 -MailboxSmtp "user@example.com" `
+    .\Cancel_Organized_Meetings.ps1 -MailboxSmtp "user@example.com" `
         -EwsUrl "https://mail.example.com/EWS/Exchange.asmx" -IgnoreSslErrors `
         -ExplicitCredential $cred -SubjectFilter "Filter Audit","New Berlin Inventory (Weekly)" -Execute
 #>
