@@ -37,7 +37,7 @@
 .EXAMPLE
     # Dry run - see what would be canceled
     # Replace -SubjectFilter -SubjectFilter "Meeting 1","Meeting 2 (Weekly)" with names of meetings found using this script
-    #
+    # https://github.com/capnhowyoudo/Office365-Powershell-Scripts/blob/main/On_Prem_Exchange/Meetings/Get_Organized_Meetings.ps1
     .\Cancel_Organized_Meetings.ps1 -MailboxSmtp "user@example.com" `
         -EwsUrl "https://mail.example.com/EWS/Exchange.asmx" -IgnoreSslErrors `
         -ExplicitCredential $cred -SubjectFilter "Meeting 1","Meeting 2 (Weekly)"
@@ -45,7 +45,7 @@
 .EXAMPLE
     # Actually cancel
     # Replace -SubjectFilter -SubjectFilter "Meeting 1","Meeting 2 (Weekly)" with names of meetings found using this script
-    #
+    # https://github.com/capnhowyoudo/Office365-Powershell-Scripts/blob/main/On_Prem_Exchange/Meetings/Get_Organized_Meetings.ps1
     .\Cancel_Organized_Meetings.ps1 -MailboxSmtp "user@example.com" `
         -EwsUrl "https://mail.example.com/EWS/Exchange.asmx" -IgnoreSslErrors `
         -ExplicitCredential $cred -SubjectFilter "Meeting 1","Meeting 2 (Weekly)" -Execute
