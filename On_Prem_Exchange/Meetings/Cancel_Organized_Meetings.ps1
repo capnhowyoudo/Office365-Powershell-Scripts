@@ -15,6 +15,8 @@
       * Run this script from C:\temp
 
     To find the -EwsUrl value for your environment, run this from the Exchange Management Shell:
+      Get-ExchangeServer | Select Name, Fqdn | ForEach-Object { [PSCustomObject]@{ Server = $_.Name; EwsUrl = "https://$($_.Fqdn)/EWS/Exchange.asmx" } }
+      or
       Get-WebServicesVirtualDirectory | Select Server, InternalUrl, ExternalUrl
 
 .PARAMETER MailboxSmtp
