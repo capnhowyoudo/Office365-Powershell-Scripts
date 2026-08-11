@@ -14,8 +14,7 @@
       * Copy lib\net35\Microsoft.Exchange.WebServices.dll to C:\temp\
       * Run this script from C:\temp
 
-    To find the -EwsUrl value for your environment, run this from the Exchange Management Shell:
-    
+    To find the -EwsUrl value for your environment, run one of the following from the Exchange Management Shell:
       Get-ExchangeServer | Select Name, Fqdn | ForEach-Object { [PSCustomObject]@{ Server = $_.Name; EwsUrl = "https://$($_.Fqdn)/EWS/Exchange.asmx" } }
       or
       Get-WebServicesVirtualDirectory | Select Server, InternalUrl, ExternalUrl
