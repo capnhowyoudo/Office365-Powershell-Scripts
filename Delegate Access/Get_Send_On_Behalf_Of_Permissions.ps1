@@ -11,5 +11,4 @@
     PowerShell session with the appropriate permissions.
 #>
 
-Get-Mailbox -Identity "sales@contoso.com" |
-    Select-Object -ExpandProperty GrantSendOnBehalfTo
+Get-Mailbox -Identity "sales@contoso.com" | Select-Object -ExpandProperty GrantSendOnBehalfTo
