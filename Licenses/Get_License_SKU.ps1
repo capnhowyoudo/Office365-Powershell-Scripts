@@ -17,5 +17,5 @@ Optional Connect to MS Graph Private Window (Some cmdlets may not work, known bu
 Connect-Graph -Scopes User.ReadWrite.All, Organization.Read.All -UseDeviceCode
 #>
 
-Connect-MgGraph -Scopes "User.ReadWrite.All","Group.ReadWrite.All"
+Connect-MgGraph -Scopes "Organization.Read.All"
 Get-MgSubscribedSku | Export-Csv -Path "C:\Temp\SubscribedSku.csv" -NoTypeInformation
