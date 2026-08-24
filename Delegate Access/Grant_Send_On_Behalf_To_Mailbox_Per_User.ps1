@@ -22,5 +22,5 @@ using Connect-ExchangeOnline.
 #>
 
 # Grant Send on Behalf permission to a mailbox
-Set-Mailbox user@domain.com `
-  -GrantSendOnBehalfTo admin@domain.com
+Set-Mailbox -Identity "mailbox@domain.com" -GrantSendOnBehalfTo @{Add="user@domain.com"}
+
