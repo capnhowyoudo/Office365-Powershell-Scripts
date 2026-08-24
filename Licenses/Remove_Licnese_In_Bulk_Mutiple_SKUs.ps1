@@ -16,6 +16,15 @@
     Input file format: a plain text file with one user identifier
     (UserPrincipalName or User ID) per line.
 
+    The accounts file should contain one user principal name (UPN) or user ID per line, for example:
+    user1@example.com
+    user2@example.com
+    user3@example.com
+
+    The file path in the script uses C:\Temp\Accounts.txt.
+
+Sku's can be found with this script https://github.com/capnhowyoudo/Office365-Powershell-Scripts/blob/main/Licenses/Get_License_SKU.ps1
+
 .NOTES
     Author          : 
     Requires        : Microsoft.Graph.Users, Microsoft.Graph.Users.Actions PowerShell modules
