@@ -29,5 +29,6 @@ Set-MailboxAutoReplyConfiguration -Identity "SharedMailboxName" `
     -AutoReplyState Scheduled `
     -StartTime "2025-12-05 08:00" `
     -EndTime "2025-12-12 17:00" `
+    -ExternalAudience All `
     -InternalMessage "Internal auto-reply." `
     -ExternalMessage "External auto-reply."
