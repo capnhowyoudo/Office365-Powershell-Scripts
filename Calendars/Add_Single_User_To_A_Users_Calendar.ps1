@@ -19,6 +19,20 @@ The level of access being granted (e.g., Editor, Reviewer, Owner).
 - Replace the email addresses with your generic or target mailbox/user.
 - Ensure the executing account has the required permissions to assign mailbox folder permissions.
 - Calendar is the most common folder to assign permissions, but you can adjust for other folders like Inbox.
+
+- AccessRights: Defines the permission level. Common values include:
+    • Owner – Full control, including manage permissions
+    • PublishingEditor – Read, create, modify, delete items/subfolders
+    • Editor – Read, create, modify, delete items
+    • PublishingAuthor – Read, create all items/subfolders, modify/delete own items
+    • Author – Create/read items, modify/delete own items
+    • NonEditingAuthor – Read all, create items, delete own items only
+    • Reviewer – Read only
+    • Contributor – Create items and folders only
+    • AvailabilityOnly – Free/busy information
+    • LimitedDetails – View subject/location only
+    • None – No access
+    
 #>
 
 # Example command
