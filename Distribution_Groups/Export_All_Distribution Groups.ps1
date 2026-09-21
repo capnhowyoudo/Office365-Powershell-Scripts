@@ -1,17 +1,44 @@
 <#
 .SYNOPSIS
-Exports all distribution groups in Exchange Online (or on-premises) to a CSV file.
+    Lists all distribution groups and Microsoft 365 (Unified) groups in Exchange Online.
 
 .DESCRIPTION
-This command retrieves all distribution groups using Get-DistributionGroup with no limit on the number of results.
-It selects only the DisplayName, PrimarySmtpAddress, and GroupType properties and exports the data to a CSV file
-located at C:\temp\Exchange_DLs.csv. The -NoTypeInformation parameter is used to prevent extra type info from 
-being added to the CSV.
+    Connects to Exchange Online, retrieves all Distribution Groups, Mail-Enabled Security
+    Groups, and Microsoft 365 Groups, displays them in a formatted table, and exports both
+    a distribution-groups-only CSV and a combined CSV (DLs + M365 Groups) to C:\Temp.
 
 .NOTES
-- Ensure the C:\temp\ folder exists or change the path accordingly.
-- Requires the Exchange Online Management Module or Exchange Management Shell.
-- This export can be used for reporting, auditing, or migration purposes.
+    Requires an active connection to Exchange Online and read access to recipient objects.
+    Creates C:\Temp if it doesn't already exist.
 #>
 
-Get-DistributionGroup -ResultSize Unlimited | Select-Object DisplayName, PrimarySmtpAddress, GroupType | Export-Csv -Path "C:\temp\Exchange_DLs.csv" -NoTypeInformation
+# Ensure the output folder exists
+$OutputFolder = "C:\Temp"
+if (-not (Test-Path $OutputFolder)) {
+    New-Item -Path $OutputFolder -ItemType Directory | Out-Null
+}
+
+# Connect to Exchange Online (if not already connected)
+Connect-ExchangeOnline
+
+# Get all Distribution Groups / Mail-Enabled Security Groups
+$DLs = Get-DistributionGroup -ResultSize Unlimited |
+    Select-Object DisplayName, PrimarySmtpAddress, RecipientTypeDetails, Guid, ManagedBy
+
+# Display Distribution Groups in console
+$DLs | Sort-Object DisplayName | Format-Table -AutoSize
+
+# Export Distribution Groups only
+$DLs | Sort-Object DisplayName |
+    Export-Csv -Path "$OutputFolder\AllDistributionLists.csv" -NoTypeInformation
+
+# Get all Microsoft 365 (Unified) Groups
+$M365Groups = Get-UnifiedGroup -ResultSize Unlimited |
+    Select-Object DisplayName, PrimarySmtpAddress, RecipientTypeDetails, Guid, ManagedBy
+
+# Combine DLs + M365 Groups and export
+$All = $DLs + $M365Groups
+$All | Sort-Object DisplayName |
+    Export-Csv -Path "$OutputFolder\AllGroups.csv" -NoTypeInformation
+
+Write-Host "Done. Files saved to $OutputFolder\AllDistributionLists.csv and $OutputFolder\AllGroups.csv" -ForegroundColor Green
