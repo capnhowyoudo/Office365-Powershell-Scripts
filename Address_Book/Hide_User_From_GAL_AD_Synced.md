@@ -14,7 +14,21 @@ Since the Exchange Online attribute msExchHideFromAddressLists is an AD on-premi
 
 I would recommend the first option. 
 
-# Modifying the AD Connect Role:
+# Scope in the msDS-cloudExtensionAttribute for Azure AD Connect
+
+1. Open the Azure AD Connect Synchronization Service
+
+<img width="698" height="750" alt="image" src="https://github.com/user-attachments/assets/e5c07d01-2d97-45c4-bf5a-b2418e78bc6d" />
+
+2. Navigate to the Connectors tab, select your Active Directory (not the domain.onmicrosoft.com entry), and select Properties
+
+<img width="1024" height="806" alt="image" src="https://github.com/user-attachments/assets/884bcd51-ef08-42ae-aa7b-a037ac81cde6" />
+
+3. In the top right, click on Show All, scroll down and find msDS-CloudExtensionAttribute1 (you can use any of the numbers 1-20, just make sure to check the box you are using), and select OK
+
+<img width="1024" height="807" alt="image" src="https://github.com/user-attachments/assets/60c694a3-6d8e-40fe-a81a-c0640f92a203" />
+
+# Create a custom sync rule:
 
 1. Open Synchronization Rules Editor:
 
